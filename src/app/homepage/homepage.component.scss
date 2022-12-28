@@ -1,0 +1,26 @@
+body{
+  margin: 0;
+  padding:0;
+  background: #313131;
+}
+.slider{
+  background-image: url("../../assets/Pictures/skipiste2.jpg");
+  background-position: center;
+  background-size: cover;
+  padding: 400px;
+  animation: slide 90s infinite;
+}
+@keyframes slide{
+  25%{
+  background-image: url("../../assets/Pictures/skipiste4.jpg");
+  }
+  50%{
+  background-image: url("../../assets/Pictures/skipiste6.jpg");
+  }
+  75%{
+  background-image: url("../../assets/Pictures/skipiste7.jpg");
+  }
+  100%{
+  background-image: url("../../assets/Pictures/skipiste2.jpg");
+  }
+}
