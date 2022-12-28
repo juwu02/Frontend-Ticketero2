@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { RegistrierungsmaskeComponent } from './registrierungsmaske/registrierungsmaske.component';
 import { KontaktformularComponent } from './kontaktformular/kontaktformular.component';
 import { SkipasskaufenComponent } from './skipasskaufen/skipasskaufen.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 const routes: Routes = [
   {path: 'bevorstehendeEvents',
@@ -30,6 +31,9 @@ const routes: Routes = [
   },
   {path: 'skipasskaufenComponent',
        component: SkipasskaufenComponent
+  },
+  {path: 'homepageComponent',
+       component: HomepageComponent
   },
 ];
 
