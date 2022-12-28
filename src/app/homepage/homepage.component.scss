@@ -1,13 +1,14 @@
 body{
   margin: 0;
   padding:0;
-  background: gray;
 }
 .slider{
   background-image: url("../../assets/Pictures/skipiste2.jpg");
   background-position: center;
   background-size: cover;
   animation: slide 90s infinite;
+  border-bottom-left-radius: 15%;
+  box-shadow: 8px 8px 10px #aaa;
 }
 @keyframes slide{
   25%{
@@ -25,13 +26,14 @@ body{
 }
 .vorteile{
   font-size: 20px;
-  padding: 2% 30%;
+  padding: 2% 20%;
   font-weight: bolder;
+
 }
 .vorteile ul{
   display: flex;
-  justify-content: space-between;
   list-style: none;
+  justify-content: space-between;
 }
 .vorteile ul li{
     background: grey;
@@ -39,4 +41,56 @@ body{
     padding: 1%;
     border-radius: 20px;
 }
-
+.uberschrift{
+  display: flex;
+  justify-content: center;
+  padding-bottom: 5%;
+  padding-top: 3%;
+  color: #fff;
+}
+.uberschrift h1{
+  font-size: 100px;
+  font-weight: bolder;
+}
+.kaufen{
+  display: flex;
+  justify-content: center;
+  padding-bottom: 5%;
+}
+.kaufen button{
+  background: grey;
+  padding: 10px;
+  border: 3px solid black;
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: bolder;
+  cursor: pointer;
+}
+.kaufen button:hover{
+  background: #333;
+  border: 3px solid #333;
+  color: #fff;
+}
+.gultigkeit{
+padding-top: 5%;
+  display:flex;
+  justify-center: space-between;
+}
+.beteiligt{
+  padding-top: 2%;
+  display:flex;
+  justify-center: space-between;
+  padding-bottom: 5%;
+}
+.tarife{
+  padding-top: 1%;
+  display:flex;
+  justify-center: space-between;
+}
+.teil2{
+  width: 50%;
+}
+.teil1,
+.teil3{
+  width: 25%
+}
