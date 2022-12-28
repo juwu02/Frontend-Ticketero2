@@ -7,7 +7,6 @@ body{
   background-image: url("../../assets/Pictures/skipiste2.jpg");
   background-position: center;
   background-size: cover;
-  padding: 400px;
   animation: slide 90s infinite;
 }
 @keyframes slide{
@@ -24,3 +23,20 @@ body{
   background-image: url("../../assets/Pictures/skipiste2.jpg");
   }
 }
+.vorteile{
+  font-size: 20px;
+  padding: 2% 30%;
+  font-weight: bolder;
+}
+.vorteile ul{
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+.vorteile ul li{
+    background: grey;
+    border: 3px solid black;
+    padding: 1%;
+    border-radius: 20px;
+}
+
