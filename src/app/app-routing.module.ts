@@ -23,16 +23,16 @@ const routes: Routes = [
   {path: 'headerComponent',
        component: HeaderComponent
   },
-  {path: 'registrierungsmaskeComponent',
+  {path: 'registrierungsmaske',
        component: RegistrierungsmaskeComponent
   },
-  {path: 'kontaktformularComponent',
+  {path: 'kontaktformular',
        component: KontaktformularComponent
   },
-  {path: 'skipasskaufenComponent',
+  {path: 'skipasskaufen',
        component: SkipasskaufenComponent
   },
-  {path: 'homepageComponent',
+  {path: 'homepage',
        component: HomepageComponent
   },
 ];
