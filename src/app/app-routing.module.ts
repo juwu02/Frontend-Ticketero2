@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { BevorstehendeEventsComponent } from "./bevorstehende-events/bevorstehende-events.component";
+
+const routes: Routes = [
+  {path: 'bevorstehendeEvents',
+    component: BevorstehendeEventsComponent},
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
