@@ -25,7 +25,9 @@
       </mat-card-title-group>
     </mat-card-header>
     <mat-card-content [@bodyExpansion]="state" class="expandable-content">
-      <img mat-card-sm-image src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.n2saXL7xX6_GmI3hgYyl5gHaHa%26pid%3DApi&f=1&ipt=5f39ad5eb42c2f1df3dae875986f83703d5f701db51713b5b54c26f805d3b6c6&ipo=images">
+      <!--<img mat-card-sm-image src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.n2saXL7xX6_GmI3hgYyl5gHaHa%26pid%3DApi&f=1&ipt=5f39ad5eb42c2f1df3dae875986f83703d5f701db51713b5b54c26f805d3b6c6&ipo=images">-->
+      <!--<qr-code [value]="'www.google.de'"></qr-code>-->
+      <qr-code [value]="qrInfo" size="100"></qr-code>
     </mat-card-content>
     <mat-card-actions>
       <button mat-button (click)="toggle()" color="primary">QR-Code anzeigen</button>

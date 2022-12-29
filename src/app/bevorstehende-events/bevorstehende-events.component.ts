@@ -33,4 +33,6 @@ export class BevorstehendeEventsComponent {
     {id: 4, skigebiet:'anderes Skigebiet', datum:'26.12.2022', bestellnummer:'#12345', vorname:'Maxi', nachname:'Mustermann', tarif:'ganze Saison'},
   ]
 
+  qrInfo = JSON.stringify(this.skipaesse);
+
 }

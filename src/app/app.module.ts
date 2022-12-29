@@ -5,6 +5,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { MatButtonModule } from '@angular/material/button';
 
+import { QRCodeModule } from "angular2-qrcode";
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -37,7 +39,8 @@ import { HomepageComponent } from './homepage/homepage.component';
     BrowserAnimationsModule,
     MatButtonModule,
     MatCardModule,
-    MatExpansionModule
+    MatExpansionModule,
+    QRCodeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
