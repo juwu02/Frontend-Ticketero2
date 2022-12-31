@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import {Skipass} from "../skipass";
+import { SkipassService } from "../skipass.service";
 
 @Component({
   selector: 'app-bevorstehende-events',
@@ -16,6 +18,26 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 })
 
 export class BevorstehendeEventsComponent {
+
+  skipaesse: Skipass[] = [];
+  skipass? : Skipass;
+  //skipass: ({ vorname: 'Max'; nachname: 'Mustermann'; id: 1 } | { vorname: 'Maxim'; nachname: 'Mustermann'; id: 2 } | { vorname: 'Maxima'; nachname: 'Mustermann'; id: 3 } | { vorname: 'Maxi'; nachname: 'Mustermann'; id: 4 })
+
+  constructor(private skipassService: SkipassService) {
+  }
+
+  ngOnInit(): void {
+    this.getSkipaesse();
+  }
+
+  getSkipaesse(): void{
+    this.skipassService.getSkipaesse()
+      .subscribe(x => {
+        console.log(x)
+        this.skipaesse = x
+      });
+  }
+
   show=4;
   skigebiet="Oberwallis";
   zusatzText="Das ist ein Test Skipass";
@@ -23,16 +45,14 @@ export class BevorstehendeEventsComponent {
   panelOpenState: boolean = false;
   toggle(): void {
     this.state = this.state === 'collapsed' ? 'expanded' : 'collapsed';
+
   }
 
-  //muss später alles aus der DB kommen
-  skipaesse = [
-    {id: 1, skigebiet:'Oberwallis', datum:'26.12.2022', bestellnummer:'#12345', vorname:'Max', nachname:'Mustermann', tarif:'ganze Saison'},
-    {id: 2, skigebiet:'anderes Skigebiet', datum:'26.12.2022', bestellnummer:'#12345', vorname:'Maxim', nachname:'Mustermann', tarif:'ganze Saison'},
-    {id: 3, skigebiet:'anderes Skigebiet', datum:'26.12.2022', bestellnummer:'#12345', vorname:'Maxima', nachname:'Mustermann', tarif:'ganze Saison'},
-    {id: 4, skigebiet:'anderes Skigebiet', datum:'26.12.2022', bestellnummer:'#12345', vorname:'Maxi', nachname:'Mustermann', tarif:'ganze Saison'},
-  ]
+  qrInfo = JSON.stringify(this.skipaesse)
 
-  qrInfo = JSON.stringify(this.skipaesse);
+  save(): void{
+    if(this.skipass){
+    this.skipassService.updateSkipass(this.skipass).subscribe();}
+  }
 
 }

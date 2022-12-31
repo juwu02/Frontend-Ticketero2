@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from "@angular/common/http";
+import { FormsModule } from "@angular/forms";
 
 import {MatCardModule} from '@angular/material/card';
 import {MatExpansionModule} from '@angular/material/expansion';
@@ -40,7 +42,9 @@ import { HomepageComponent } from './homepage/homepage.component';
     MatButtonModule,
     MatCardModule,
     MatExpansionModule,
-    QRCodeModule
+    QRCodeModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
