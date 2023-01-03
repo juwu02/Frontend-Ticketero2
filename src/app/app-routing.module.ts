@@ -10,6 +10,7 @@ import { RegistrierungsmaskeComponent } from './registrierungsmaske/registrierun
 import { KontaktformularComponent } from './kontaktformular/kontaktformular.component';
 import { SkipasskaufenComponent } from './skipasskaufen/skipasskaufen.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { KontaktdatenComponent } from './kontaktdaten/kontaktdaten.component';
 
 const routes: Routes = [
   {path: 'bevorstehendeEvents',
@@ -34,6 +35,10 @@ const routes: Routes = [
   },
   {path: 'homepage',
        component: HomepageComponent
+  },
+
+  {path:'kontaktdaten',
+      component: KontaktdatenComponent
   },
 ];
 

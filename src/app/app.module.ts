@@ -21,6 +21,7 @@ import { RegistrierungsmaskeComponent } from './registrierungsmaske/registrierun
 import { KontaktformularComponent } from './kontaktformular/kontaktformular.component';
 import { SkipasskaufenComponent } from './skipasskaufen/skipasskaufen.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { KontaktdatenComponent } from './kontaktdaten/kontaktdaten.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { HomepageComponent } from './homepage/homepage.component';
     RegistrierungsmaskeComponent,
     KontaktformularComponent,
     SkipasskaufenComponent,
-    HomepageComponent
+    HomepageComponent,
+    KontaktdatenComponent
   ],
   imports: [
     BrowserModule,
