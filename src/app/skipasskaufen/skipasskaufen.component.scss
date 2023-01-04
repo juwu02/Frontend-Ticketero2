@@ -1,0 +1,41 @@
+body{
+  margin: 0;
+  padding:0;
+  font-size:16px;
+}
+html, body {
+    height: auto;
+}
+body{
+  background-image: url("../../assets/Pictures/skipiste2.jpg");
+  background-position: center;
+  background-size: cover;
+}
+.teil1,.teil3{
+  width: 25%;
+}
+.teil2{
+  display: grid;
+  justify-content: center;
+  padding-top: 3%;
+  background:#fff;
+  width:50%;
+  padding-bottom: 5%;
+}
+.kaufformular{
+  display:flex;
+}
+.hinweis{
+  display:flex;
+}
+.teil4{
+background: #fff;
+width:50%;
+text-align: center;
+padding-bottom: 2%;
+}
+
+.teil2 p{
+  padding-top:15%;
+}
+
