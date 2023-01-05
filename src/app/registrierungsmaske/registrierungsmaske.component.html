@@ -1,1 +1,38 @@
-<p>registrierungsmaske works!</p>
+<html>
+<body>
+<section class="registrieren">
+  <div class="teil1"> </div>
+  <div class="teil2">
+    <h1>Registriere dich bei Ticketero</h1>
+    <form [formGroup]="register">
+    <div class="example-container">
+      <mat-form-field>
+        <input matInput placeholder="Vorname">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Nachname">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="E-Mail Adresse" formControlName="email" required>
+       <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>-->
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Passwort" [type]="hide ? 'password' : 'text'" formControlName="password" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matP placeholder="Passwort wiederholen" [type]="hide ? 'password' : 'text'" formControlName="password" required>
+      </mat-form-field>
+    </div>
+    </form>
+    <button mat-raised-button color="primary">Registrieren</button><br>
+    <p>Bereits einen Account bei Ticketero? Einfach hier anmelden</p>
+    <button mat-raised-button color="primary">Anmelden</button>
+  <div class="teil3"> </div>
+  </div>
+</section>
+<section class="hinweis">
+  <div class="teil1"></div>
+  <div class="teil3"></div>
+</section>
+</body>
+</html>

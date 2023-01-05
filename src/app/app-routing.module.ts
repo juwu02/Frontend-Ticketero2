@@ -40,6 +40,9 @@ const routes: Routes = [
   {path:'kontaktdaten',
       component: KontaktdatenComponent
   },
+  {path:'anmelden',
+    component: AnmeldemaskeComponent
+  },
 ];
 
 @NgModule({
