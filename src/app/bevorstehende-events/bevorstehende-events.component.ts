@@ -18,25 +18,35 @@ import { SkipassService } from "../skipass.service";
 })
 
 export class BevorstehendeEventsComponent {
-
-  skipaesse: Skipass[] = [];
-  skipass? : Skipass;
+  //Array abrufen für get
+  //skipaesse: Skipass[] = [];
+  //löschen wenn Backend da is
+  skipaesse = [
+    {id: 1, skigebiet:'Oberwallis', datum:'26.12.2022', bestellnummer:'#12345', vorname:'Max', nachname:'Mustermann', tarif:'ganze Saison'},
+    {id: 2, skigebiet:'anderes Skigebiet', datum:'26.12.2022', bestellnummer:'#12345', vorname:'Maxim', nachname:'Mustermann', tarif:'ganze Saison'},
+    {id: 2, skigebiet:'anderes Skigebiet', datum:'26.12.2022', bestellnummer:'#12345', vorname:'Maxim', nachname:'Mustermann', tarif:'ganze Saison'},
+    {id: 2, skigebiet:'anderes Skigebiet', datum:'26.12.2022', bestellnummer:'#12345', vorname:'Maxim', nachname:'Mustermann', tarif:'ganze Saison'}
+  ]
+  //für Backend
+  //skipass? : Skipass;
   //skipass: ({ vorname: 'Max'; nachname: 'Mustermann'; id: 1 } | { vorname: 'Maxim'; nachname: 'Mustermann'; id: 2 } | { vorname: 'Maxima'; nachname: 'Mustermann'; id: 3 } | { vorname: 'Maxi'; nachname: 'Mustermann'; id: 4 })
 
   constructor(private skipassService: SkipassService) {
   }
 
-  ngOnInit(): void {
+  //für Backend
+/*  ngOnInit(): void {
     this.getSkipaesse();
-  }
+  }*/
 
-  getSkipaesse(): void{
+//für Backend
+  /*getSkipaesse(): void{
     this.skipassService.getSkipaesse()
       .subscribe(x => {
         console.log(x)
         this.skipaesse = x
       });
-  }
+  }*/
 
   show=4;
   skigebiet="Oberwallis";
@@ -49,10 +59,11 @@ export class BevorstehendeEventsComponent {
   }
 
   qrInfo = JSON.stringify(this.skipaesse)
-
+//für Backend
+  /*
   save(): void{
     if(this.skipass){
     this.skipassService.updateSkipass(this.skipass).subscribe();}
-  }
+  }*/
 
 }
