@@ -1,48 +1,56 @@
 body {
-background-color:#BFEFFF;
 font-family:'Roboto',sans-serif ;
 display:flex;
+background-position: center;
+background-size: cover;
+background-image: url("../../assets/Pictures/skipiste3.jpg");
+padding:0;
+font-size:16px;
 }
 
 .sign-up_box{
-width:360px;
-height:660px;
+display: grid;
+width:50%;
+height:921px;
 margin:auto;
-background-color:rgba(255,255,255,.5);
+background-color:rgba(255,255,255,.8);
 border-radius:3px;
+padding-top: 3%;
+padding-bottom: 5%;
 }
+
 
 h1{
 text-align:center;
-padding-top:15px;
+padding-top:10px;
+padding-left:40px;
+font-size: 55px;
+font-style:revert;
+font-weight:bold;
 }
 
 form {
 width:300px;
-margin-left:20px;
 }
 
 form label{
 display:flex;
-margin-top:20px;
-font-size:18px;
+margin-top:5px;
+font-size:16px;
+padding:8px;
+margin-left:272px;
 }
 
 form input {
-width:100%;
-padding:7px;
-border:none;
-border:1px grey;
-border-radius:6px ;
-outline:none;
+//padding:8px;
+border:1px solid black;
+width:450px;
+margin-left:280px;
 }
 
 .button {
-width:310px;
 height:25px;
-margin-top:20px;
-border:4px;
-color:white;
+margin-top:25px;
 }
 
 

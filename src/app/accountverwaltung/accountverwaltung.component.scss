@@ -5,20 +5,17 @@ background-size: cover;
 background-image: url("../../assets/Pictures/picture.jpg");
 }
 
-
 .teil1{
-background-color:rgba(255,255,255,.3);
-background-size: cover;
 display:grid;
-height:1000px;
-width:750px;
-margin-left:27%;
-
+justify-content: center;
+background-color:rgba(255,255,255,.8);
+width:50%;
+margin-left:25%;
 }
 
 .teil_1 h1 {
 font-size:55px;
-text-align: center;
+text-align:center;
 margin-top:80px;
 font-style:revert;
 font-weight:bold;
@@ -26,24 +23,20 @@ font-weight:bold;
 
 .teil_2 h2 {
 font-size:25px;
-text-align: center;
+text-align:center;
 margin-top:10px;
 font-style:revert;
 font-weight:bold;
 
 }
 
-
-
 .liste_der_optionen li{
 margin-top:85px;
-margin-left:30%;
 justify-content:center;
 text-align:center;
 display:flex;
-background-color:#F5F5F5;
-//#E0FFFF
-width:30%;
+background-color:grey;
+width:80%;
 font-size:18px;
 //margin-bottom:45px;
 padding:10px;
@@ -51,8 +44,19 @@ list-style:none;
 font-weight:bold;
 }
 
+
 a:href {
-      text-decoration:none;
+color: black;
+text-decoration-style:none;
+}
+
+a:visited {
+color: black;
+text-decoration-style:none;
+}
+
+a {
+text-decoration:none;
 }
 
 .extra_div {
