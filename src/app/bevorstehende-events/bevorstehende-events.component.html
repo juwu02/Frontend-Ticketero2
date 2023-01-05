@@ -1,44 +1,50 @@
-<!-- gibt es eine max Anzahl an Skipässen pro Person? -->
-
-<!DOCTYPE html>
 <html>
 <body>
+<section class="tickets">
+  <div class="teil1"> </div>
+  <div class="teil2">
+    <h1>Deine Skipässe</h1>
+    <!--<h2>Skipass Liste</h2>
+    <ul>
+      <li *ngFor="let skipass of skipaesse">
+        <span>{{skipass.id}}</span>{{skipass.vorname}}
+      </li>
+    </ul>-->
 
-<h2>Skipass Liste</h2>
-<ul>
-  <li *ngFor="let skipass of skipaesse">
-    <span>{{skipass.id}}</span>{{skipass.vorname}}
-  </li>
-</ul>
-<!--
-<ng-template [ngIf]="show==0">
-  <p>Noch kein Skipass vorhanden?</p>
-  <p>Bereits gekaufte Tickets werden hier automatisch angezeigt</p>
+    <ng-template [ngIf]="show==0">
+      <p>Noch kein Skipass vorhanden?</p>
+      <p>Bereits gekaufte Tickets werden hier automatisch angezeigt</p>
 
-  <button>Skipass kaufen</button></ng-template>
+      <button mat-raised-button color="primary">Skipass kaufen</button></ng-template>
 
-<ng-template [ngIf]="show>=1" *ngFor="let skipass of skipaesse">
+    <ng-template [ngIf]="show>=1" *ngFor="let skipass of skipaesse">
 
-  <mat-card class="skipass">
-    <mat-card-header>
-      <mat-card-title-group>
-        <mat-card-subtitle>{{skipass.datum}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{skipass.bestellnummer}}</mat-card-subtitle>
-        <mat-card-title>Skipass - {{skipass.vorname}} {{skipass.nachname}}</mat-card-title>
-        <mat-card-subtitle>{{skipass.skigebiet}} - {{skipass.tarif}}</mat-card-subtitle>
-        <img mat-card-sm-image src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ff.hikr.org%2Ffiles%2F1698978.jpg&f=1&nofb=1&ipt=424ee23c95810b6ee9bf69a91664b55dedf2a2be0577c498f11d0d0a46d8f48f&ipo=images" >
-      </mat-card-title-group>
-    </mat-card-header>
-    <mat-card-content [@bodyExpansion]="state" class="expandable-content">
-      <!--<img mat-card-sm-image src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.n2saXL7xX6_GmI3hgYyl5gHaHa%26pid%3DApi&f=1&ipt=5f39ad5eb42c2f1df3dae875986f83703d5f701db51713b5b54c26f805d3b6c6&ipo=images">-->
-      <!--<qr-code [value]="'www.google.de'"></qr-code>-->
-     <!-- <qr-code [value]="qrInfo" size="100"></qr-code>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button (click)="toggle()" color="primary">QR-Code anzeigen</button>
-    </mat-card-actions>
-  </mat-card>
+      <mat-card class="skipass">
+        <mat-card-header>
+          <mat-card-title-group>
+            <mat-card-subtitle>{{skipass.datum}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{skipass.bestellnummer}}</mat-card-subtitle>
+            <mat-card-title>Skipass - {{skipass.vorname}} {{skipass.nachname}}</mat-card-title>
+            <mat-card-subtitle>{{skipass.skigebiet}} - {{skipass.tarif}}</mat-card-subtitle>
+            <img mat-card-sm-image src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ff.hikr.org%2Ffiles%2F1698978.jpg&f=1&nofb=1&ipt=424ee23c95810b6ee9bf69a91664b55dedf2a2be0577c498f11d0d0a46d8f48f&ipo=images" >
+          </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-content [@bodyExpansion]="state" class="expandable-content">
+          <!--<img mat-card-sm-image src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.n2saXL7xX6_GmI3hgYyl5gHaHa%26pid%3DApi&f=1&ipt=5f39ad5eb42c2f1df3dae875986f83703d5f701db51713b5b54c26f805d3b6c6&ipo=images">-->
+    <qr-code [value]="'www.google.de'"></qr-code>
+     <!--<qr-code [value]="qrInfo" size="100"></qr-code>-->
+   </mat-card-content>
+   <mat-card-actions>
+     <button mat-raised-button color="primary" (click)="toggle()">QR-Code anzeigen</button>
+   </mat-card-actions>
+ </mat-card>
 
-</ng-template>-->
-
+</ng-template>
+  </div>
+  <div class="teil3"> </div>
+</section>
+<section class="hinweis">
+  <div class="teil1"></div>
+  <div class="teil3"></div>
+</section>
 </body>
 </html>

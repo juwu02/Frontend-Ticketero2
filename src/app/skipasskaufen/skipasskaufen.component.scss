@@ -18,9 +18,10 @@ body{
   display: grid;
   justify-content: center;
   padding-top: 3%;
-  background:#fff;
   width:50%;
   padding-bottom: 5%;
+  background: #fff;
+  background-color:rgba(255,255,255,.8);
 }
 .kaufformular{
   display:flex;
@@ -29,13 +30,18 @@ body{
   display:flex;
 }
 .teil4{
-background: #fff;
-width:50%;
-text-align: center;
-padding-bottom: 2%;
+  width:50%;
+  text-align: center;
+  padding-bottom: 2%;
+  background: #fff;
+  background-color:rgba(255,255,255,.8);
 }
 
 .teil2 p{
-  padding-top:15%;
+  padding-top:10%;
 }
-
+.teil2 h1{
+  font-size: 55px;
+  font-style:revert;
+  font-weight:bold;
+}
