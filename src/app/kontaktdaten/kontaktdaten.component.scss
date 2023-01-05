@@ -1,0 +1,48 @@
+body {
+background-color:#BFEFFF;
+font-family:'Roboto',sans-serif ;
+display:flex;
+}
+
+.sign-up_box{
+width:360px;
+height:660px;
+margin:auto;
+background-color:rgba(255,255,255,.5);
+border-radius:3px;
+}
+
+h1{
+text-align:center;
+padding-top:15px;
+}
+
+form {
+width:300px;
+margin-left:20px;
+}
+
+form label{
+display:flex;
+margin-top:20px;
+font-size:18px;
+}
+
+form input {
+width:100%;
+padding:7px;
+border:none;
+border:1px grey;
+border-radius:6px ;
+outline:none;
+}
+
+.button {
+width:310px;
+height:25px;
+margin-top:20px;
+border:4px;
+color:white;
+}
+
+
