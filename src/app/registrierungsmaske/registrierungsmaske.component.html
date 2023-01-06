@@ -3,32 +3,34 @@
 <section class="registrieren">
   <div class="teil1"> </div>
   <div class="teil2">
-    <h1>Registriere dich bei Ticketero</h1>
-    <form [formGroup]="register">
-    <div class="example-container">
-      <mat-form-field>
-        <input matInput placeholder="Vorname">
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Nachname">
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="E-Mail Adresse" formControlName="email" required>
-       <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>-->
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Passwort" [type]="hide ? 'password' : 'text'" formControlName="password" required>
-      </mat-form-field>
-      <mat-form-field>
-        <input matP placeholder="Passwort wiederholen" [type]="hide ? 'password' : 'text'" formControlName="password" required>
-      </mat-form-field>
-    </div>
-    </form>
+    <h1>Registrieren bei Ticketero</h1>
+<div class="example-container">
+  <mat-form-field>
+    <mat-label>Vorname</mat-label>
+    <input matInput placeholder="Vorname" required>
+  </mat-form-field><br>
+  <mat-form-field>
+    <mat-label>Nachname</mat-label>
+    <input matInput placeholder="Nachname" required>
+  </mat-form-field><br>
+  <mat-form-field appearance="fill">
+  <mat-label>E-Mail Adresse</mat-label>
+  <input matInput placeholder="email@example.com" [formControl]="email" required>
+  <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+</mat-form-field><br>
+  <mat-form-field appearance="fill">
+    <mat-label>Enter your password</mat-label>
+    <input matInput [type]="hide ? 'password' : 'text'">
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field>
+</div>
     <button mat-raised-button color="primary">Registrieren</button><br>
     <p>Bereits einen Account bei Ticketero? Einfach hier anmelden</p>
-    <button mat-raised-button color="primary">Anmelden</button>
-  <div class="teil3"> </div>
+    <button mat-raised-button color="primary" [routerLink]="['/anmelden']">Anmelden</button>
   </div>
+  <div class="teil3"> </div>
 </section>
 <section class="hinweis">
   <div class="teil1"></div>
@@ -36,3 +38,4 @@
 </section>
 </body>
 </html>
+

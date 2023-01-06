@@ -3,23 +3,26 @@
 <section class="registrieren">
   <div class="teil1"> </div>
   <div class="teil2">
-    <h1>Anmelden</h1>
-    <form [formGroup]="anmelden">
-      <div class="example-container">
-        <mat-form-field>
-          <input matInput placeholder="E-Mail Adresse" formControlName="email" required>
-          <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>-->
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput placeholder="Passwort" [type]="hide ? 'password' : 'text'" formControlName="password" required>
-        </mat-form-field>
-      </div>
-    </form>
-    <button mat-raised-button color="primary">Anmelden</button><br>
+    <h1>Anmelden bei Ticketero</h1>
+    <div class="example-container">
+      <mat-form-field appearance="fill">
+        <mat-label>E-Mail Adresse</mat-label>
+        <input matInput placeholder="email@example.com" [formControl]="email" required>
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field><br>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <button mat-raised-button color="primary" [routerLink]="['/bevorstehendeEvents']">Anmelden</button><br>
     <p>Noch keinen Account bei Ticketero? Einfach hier registrieren</p>
-    <button mat-raised-button color="primary">Registrieren</button>
-    <div class="teil3"> </div>
+    <button mat-raised-button color="primary" [routerLink]="['/registrierungsmaske']">Registrieren</button>
   </div>
+  <div class="teil3"> </div>
 </section>
 <section class="hinweis">
   <div class="teil1"></div>

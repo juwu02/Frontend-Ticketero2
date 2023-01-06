@@ -6,8 +6,9 @@ import { ReactiveFormsModule } from "@angular/forms";
 
 import {MatCardModule} from '@angular/material/card';
 import {MatExpansionModule} from '@angular/material/expansion';
-import { MatButtonModule } from '@angular/material/button';
+import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 import { QRCodeModule } from "angular2-qrcode";
 
@@ -24,6 +25,8 @@ import { KontaktformularComponent } from './kontaktformular/kontaktformular.comp
 import { SkipasskaufenComponent } from './skipasskaufen/skipasskaufen.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { KontaktdatenComponent } from './kontaktdaten/kontaktdaten.component';
+import {from} from "rxjs";
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -50,7 +53,9 @@ import { KontaktdatenComponent } from './kontaktdaten/kontaktdaten.component';
     HttpClientModule,
     FormsModule,
     MatFormFieldModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatInputModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

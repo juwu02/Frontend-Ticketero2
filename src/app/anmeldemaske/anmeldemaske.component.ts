@@ -7,9 +7,15 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./anmeldemaske.component.scss']
 })
 export class AnmeldemaskeComponent {
-  anmelden = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required, Validators.min(3) ])
-  })
+  email = new FormControl('', [Validators.required, Validators.email]);
+
+  getErrorMessage() {
+    if (this.email.hasError('required')) {
+      return 'Du musst etwas eingeben';
+    }
+
+    return this.email.hasError('email') ? 'Keine echte E-Mail Adresse' : '';
+  }
+
   hide=true;
 }
