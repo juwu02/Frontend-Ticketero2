@@ -1,48 +1,51 @@
-body {
-background-color:#BFEFFF;
-font-family:'Roboto',sans-serif ;
-display:flex;
+body{
+  margin: 0;
+  padding:0;
+  font-size:16px;
+}
+html, body {
+    height: auto;
+}
+body{
+background-image: url("../../assets/Pictures/skipiste3.jpg");
+background-position: center;
+background-size: cover;
+}
+.teil1,.teil3{
+  width: 25%;
+}
+.teil2{
+  display: grid;
+  justify-content: center;
+  padding-top: 3%;
+  width:50%;
+  padding-bottom: 5%;
+  background: #fff;
+  background-color:rgba(255,255,255,.8);
+}
+.persönliche_daten{
+  display:flex;
 }
 
-.sign-up_box{
-width:360px;
-height:660px;
-margin:auto;
-background-color:rgba(255,255,255,.5);
-border-radius:3px;
+.teil4{
+  width:50%;
+  text-align: center;
+  padding-bottom: 2%;
+  background: #fff;
+  background-color:rgba(255,255,255,.8);
 }
 
-h1{
-text-align:center;
-padding-top:15px;
+.teil2 p{
+  padding-top:10%;
+}
+.teil2 h1{
+  font-size: 55px;
+  font-style:revert;
+  font-weight:bold;
 }
 
-form {
-width:300px;
-margin-left:20px;
+.teil2 #submit {
+margin-top:60px;
+padding:10px;
+
 }
-
-form label{
-display:flex;
-margin-top:20px;
-font-size:18px;
-}
-
-form input {
-width:100%;
-padding:7px;
-border:none;
-border:1px grey;
-border-radius:6px ;
-outline:none;
-}
-
-.button {
-width:310px;
-height:25px;
-margin-top:20px;
-border:4px;
-color:white;
-}
-
-
