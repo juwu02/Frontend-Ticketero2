@@ -48,7 +48,17 @@ header .navbar ul li a{
   color: #fff;
   display:block;
 }
+header .navbar ul li option{
+  font-size: 20px;
+  padding:20px;
+  color: #fff;
+  display:block;
+  cursor:pointer;
+}
 header .navbar ul li a:hover{
+  background: #333;
+}
+header .navbar ul li option:hover{
   background: #333;
 }
 header .navbar ul li ul{
