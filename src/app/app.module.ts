@@ -27,6 +27,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { KontaktdatenComponent } from './kontaktdaten/kontaktdaten.component';
 import {from} from "rxjs";
 import {MatIconModule} from "@angular/material/icon";
+import { ProblemmeldenComponent } from './problemmelden/problemmelden.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import {MatIconModule} from "@angular/material/icon";
     KontaktformularComponent,
     SkipasskaufenComponent,
     HomepageComponent,
-    KontaktdatenComponent
+    KontaktdatenComponent,
+    ProblemmeldenComponent
   ],
   imports: [
     BrowserModule,
