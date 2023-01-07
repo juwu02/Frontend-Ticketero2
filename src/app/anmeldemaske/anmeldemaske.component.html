@@ -4,23 +4,23 @@
   <div class="teil1"> </div>
   <div class="teil2">
     <h1>Anmelden bei Ticketero</h1>
-    <div class="example-container">
+    <form class="example-container">
       <mat-form-field appearance="fill">
         <mat-label>E-Mail Adresse</mat-label>
-        <input matInput placeholder="email@example.com" [formControl]="email" required>
-        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        <input matInput placeholder="email@example.com" [formControl]="email1" type="email" [(ngModel)] ="email" name="email" required>
+        <mat-error *ngIf="email1.invalid">{{getErrorMessage()}}</mat-error>
       </mat-form-field><br>
       <mat-form-field appearance="fill">
-        <mat-label>Enter your password</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'">
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-label>Passwort eingeben</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]= "password" name="password" required>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Passwort verbergen'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
       </mat-form-field>
-    </div>
-    <button mat-raised-button color="primary" [routerLink]="['/bevorstehendeEvents']">Anmelden</button><br>
-    <p>Noch keinen Account bei Ticketero? Einfach hier registrieren</p>
-    <button mat-raised-button color="primary" [routerLink]="['/registrierungsmaske']">Registrieren</button>
+        <button mat-raised-button color="primary"  (click)="submit()">Anmelden</button><br>
+        <p>Noch keinen Account bei Ticketero? Einfach hier registrieren</p>
+        <button mat-raised-button color="primary" [routerLink]="['/registrierungsmaske']">Registrieren</button>
+  </form>
   </div>
   <div class="teil3"> </div>
 </section>
