@@ -1,11 +1,11 @@
 
 <header>
-  <a href="#" class="logo"> Ticketero </a>
+  <button [routerLink]="['/homepage']" class="logo"> Ticketero </button>
   <input type="checkbox" id="menu-bar">
   <label for="menu-bar">Menu</label>
   <nav class="navbar">
     <ul>
-      <li><a href="#">Tarife</a></li>
+      <li><a [routerLink]="['/homepage']">Info</a></li>
       <li><a href="#">Skigebiete</a>
         <ul class="dropdown">
           <li><a href="https://www.belalp.ch/poi-detail/belalp-bahnen-ag">Belalp Bahnen AG</a></li>
