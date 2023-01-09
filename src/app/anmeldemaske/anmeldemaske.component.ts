@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormControl, Validators} from "@angular/forms";
+import { LoginService } from "../login.service";
+import {User} from "../user";
 
 @Component({
   selector: 'app-anmeldemaske',
@@ -7,6 +9,9 @@ import {FormBuilder, FormControl, Validators} from "@angular/forms";
   styleUrls: ['./anmeldemaske.component.scss']
 })
 export class AnmeldemaskeComponent {
+
+  //users: User[] = [];
+  user: User;
 
   email: string = "";
   password: string = "";
@@ -28,4 +33,19 @@ export class AnmeldemaskeComponent {
   }
 
   hide=true;
-}
+
+  constructor(private loginService: LoginService) {
+  }
+
+  ngOnInit(): void {
+    this.getUsers();
+  }
+
+  getUsers(): void{
+    this.loginService.getUsers()
+      .subscribe(x => {
+        console.log(x)
+        this.user = x
+      });
+
+}}
