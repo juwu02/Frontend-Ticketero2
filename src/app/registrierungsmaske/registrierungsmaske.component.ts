@@ -8,40 +8,30 @@ import {ReactiveFormsModule } from "@angular/forms";
   styleUrls: ['./registrierungsmaske.component.scss']
 })
 export class RegistrierungsmaskeComponent {
-  email = new FormControl('', [Validators.required, Validators.email]);
- /* registerForm = new FormGroup({
-    name: new FormControl(''),
-    lastname: new FormControl(''),
-    email: new FormControl('', [Validators.required, Validators.email]),
-  })
 
-  register() {
-    this.name
-  }*/
+  firstName: string = "";
+  lastName: string = "";
+  email: string = "";
+  password: string = "";
 
+  submit() {
+    console.log("Der User " + this.firstName + " " + this.lastName + " wurde registriert")
+    this.clear();
+  }
 
+  clear(){
+    this.firstName = "";
+    this.lastName = "";
+    this.email = "";
+    this.password = "";
+  }
+
+  email1 = new FormControl('', [Validators.required, Validators.email]);
 
   getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'Du musst etwas eingeben';
-    }
-
-    return this.email.hasError('email') ? 'Keine echte E-Mail Adresse' : '';
+    return this.email1.hasError('email') ? 'Keine echte E-Mail Adresse' : '';
   }
 
   hide = true;
-
-  /*register = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required, Validators.min(3) ])
-  })
-  hide=true;
-
-
-  /*getErrorMessage() {
-    return this.email.hasError('required') ? 'Bitte gebe etwas ein' :
-      this.email.hasError('email') ? 'Keine gültige E-Mail Adresse' :
-        '';
-  }*/
 
 }
