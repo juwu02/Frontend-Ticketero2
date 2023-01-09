@@ -37,10 +37,6 @@ body{
   background: #fff;
   background-color:rgba(255,255,255,.8);
 }
-
-.teil2 p{
-  padding-top:10%;
-}
 .teil2 h1{
   font-size: 55px;
   font-style:revert;
@@ -49,6 +45,13 @@ body{
 form{
   display:grid;
 }
-
-
-
+.teil2 label{
+  padding-top:5%;
+}
+input, select{
+  padding: 10px;
+  border-radius: 10px;
+}
+button{
+  margin-top: 25px;
+}

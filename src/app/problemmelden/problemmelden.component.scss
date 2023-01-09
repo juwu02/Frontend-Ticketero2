@@ -47,5 +47,15 @@ background-size: cover;
 .teil2 #submit {
 margin-top:60px;
 padding:10px;
-
 }
+.teil2 label{
+  padding-top:5%;
+}
+input, select,textarea{
+  padding: 10px;
+  border-radius: 10px;
+}
+button{
+  margin-top: 25px;
+}
+textarea { resize: none; }
