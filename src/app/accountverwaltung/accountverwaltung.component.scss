@@ -4,7 +4,9 @@ background-position: center;
 background-size: cover;
 background-image: url("../../assets/Pictures/picture.jpg");
 }
-
+html, body {
+    height: auto;
+}
 .teil1{
 display:grid;
 justify-content: center;
@@ -27,38 +29,14 @@ font-size:25px;
 text-align:center;
 font-style:revert;
 font-weight:bold;
-
 }
 
-.liste_der_optionen li{
-margin-top:50px;
-justify-content:center;
-text-align:center;
-display:flex;
-background-color:grey;
-width:80%;
-font-size:18px;
-//margin-bottom:45px;
-padding:10px;
-list-style:none;
-font-weight:bold;
+.liste_der_optionen button{
+margin-top:40px;
+display:grid;
 }
-
-
-a:href {
-color: black;
-text-decoration-style:none;
-}
-
-a:visited {
-color: black;
-text-decoration-style:none;
-}
-
-a {
-text-decoration:none;
-}
-
-.extra_div {
-block-size: 300px;
+.liste_der_optionen{
+  padding-bottom: 150px;
+  display:grid;
+  justify-content: center;
 }

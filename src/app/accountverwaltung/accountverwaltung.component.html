@@ -17,17 +17,12 @@
   </div>
 
   <div class="liste_der_optionen">
-    <ul>
-      <li><a [routerLink]="['/kontaktdaten']" >Kontaktdaten bearbeiten</a></li>
-      <li><a [routerLink]="['/bevorstehendeEvents']">Mein Skipass</a></li>
-      <li><a [routerLink]="['/kontaktformular']" > Verlust melden </a></li>
-      <li><a [routerLink]="['/kontaktformular']">Problem melden </a></li>
-      <li>Abmelden</li>
-    </ul>
+    <button mat-raised-button color="primary" [routerLink]="['/kontaktdaten']" >Kontaktdaten bearbeiten</button>
+      <button mat-raised-button color="primary" [routerLink]="['/bevorstehendeEvents']">Mein Skipass</button>
+      <button mat-raised-button color="primary"[routerLink]="['/kontaktformular']" > Verlust melden </button>
+      <button mat-raised-button color="primary" [routerLink]="['/kontaktformular']">Problem melden </button>
+      <button mat-raised-button color="primary" [routerLink]="['/homepage']"> Abmelden </button>
   </div>
-
-  <div class="extra_div"> </div>
-
 </section>
 
 
