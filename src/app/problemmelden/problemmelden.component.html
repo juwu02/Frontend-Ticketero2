@@ -9,14 +9,29 @@
   <div class="teil1"> </div>
   <div class="teil2">
     <h1>Problem melden</h1>
-    <p> Name </p>
-    <input type="text">
-    <p> Aktuelle E-Mail Adresse </p>
-    <input type="email" placeholder="E-Mail Adresse">
-    <p>Handynummer (für die Rückmeldungen) </p>
-    <input type="tel" placeholder="Handynummer">
-    <p> Ihre Nachricht </p>
-    <textarea id="anfrage" placeholder="Hier können Sie Ihre Nachricht lassen" rows="10"></textarea>
+    <mat-form-field appearance="fill">
+      <mat-label>Name </mat-label>
+      <input matInput type="text">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label> Aktuelle E-Mail Adresse </mat-label>
+      <input matInput type="email" placeholder="E-Mail Adresse">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Handynummer (für die Rückmeldungen) </mat-label>
+      <input matInput type="tel" placeholder="Handynummer">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Betreff</mat-label>
+      <input matInput type="text" placeholder="Hier können Sie Ihren Betreff eingeben">
+    </mat-form-field>
+
+    <mat-form-field class="input-field">
+      <textarea matInput name="questionText" cols="100" rows="5"
+                placeholder="Ihre Nachricht" [(ngModel)]="questionText"
+                required>
+      </textarea>
+    </mat-form-field>
     <button mat-raised-button color="primary" type="submit" id="submit">Absenden</button>
   </div>
   <div class="teil3"> </div>

@@ -9,8 +9,11 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import {MatSelectModule} from '@angular/material/select';
 import { QRCodeModule } from "angular2-qrcode";
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,6 +31,7 @@ import { KontaktdatenComponent } from './kontaktdaten/kontaktdaten.component';
 import {from} from "rxjs";
 import {MatIconModule} from "@angular/material/icon";
 import { ProblemmeldenComponent } from './problemmelden/problemmelden.component';
+import { MatNativeDateModule } from  '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -57,7 +61,11 @@ import { ProblemmeldenComponent } from './problemmelden/problemmelden.component'
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatButtonToggleModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

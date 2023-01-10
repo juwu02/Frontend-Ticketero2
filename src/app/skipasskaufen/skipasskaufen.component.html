@@ -4,31 +4,60 @@
 <div class="teil1"> </div>
 <div class="teil2">
   <h1>Kaufe dein Skipass</h1>
-  <form action="https://formsubmit.co/el/zipice" method="POST">
-    <label>Vorname:</label>
-    <input type="text" name="vorname" placeholder="Vorname" required>
-    <label>Nachname:</label>
-    <input type="text" name="Nachname" placeholder="Nachname"required>
-    <label>PLZ:</label>
-    <input type="text" name="PLZ" placeholder="PLZ"required>
-    <label>Strasse:</label>
-    <input type="text" name="Strasse" placeholder="Strasse"required>
-    <label>Hausnummer:</label>
-    <input type="text" name="Hausnummer" placeholder="Hausnummer" required>
-    <label>Wähle ein Tarif aus:</label>
-    <select name="tarif" id="tarifmenu" required>
-      <option value="volvo">Erwachsene 1200€</option>
-      <option value="saab">Jugendliche 1000€</option>
-      <option value="opel">Kinder 600€</option>
-      <option value="audi">Babys kostenlos</option>
-      <option value="audi">Familienpass 3000€ </option>
-    </select>
-    <label>Geburtsadtum:</label>
-    <input type="date" name="Geburtsadtum" required>
-    <label>E-Mail-Adresse:</label>
-    <input type="email" name="E-Mail-Adresse" placeholder="Deine E-Mail-Adresse" required>
-    <label>Handynummer</label>
-    <input type="tel" name="Handynummer" placeholder="Handynummer">
+  <form action="https://formsubmit.co/el/zipice" method="POST" >
+
+    <mat-form-field appearance="fill" >
+    <mat-label>Vorname:</mat-label>
+    <input matInput type="text" name="vorname" placeholder="Vorname" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" id="runter">
+    <mat-label>Nachname:</mat-label>
+    <input matInput type="text" name="Nachname" placeholder="Nachname"required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" id="runter">
+    <mat-label>PLZ:</mat-label>
+    <input matInput type="text" name="PLZ" placeholder="PLZ"required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" id="runter">
+    <mat-label>Strasse:</mat-label>
+    <input matInput type="text" name="Strasse" placeholder="Strasse"required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" id="runter">
+    <mat-label>Hausnummer:</mat-label>
+    <input matInput type="text" name="Hausnummer" placeholder="Hausnummer" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Wähle ein Tarif aus:</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let food of foods" [value]="food.value">
+          {{food.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field color="primary" appearance="fill">
+      <mat-label>Geburtsdatum</mat-label>
+      <input matInput [matDatepicker]="picker2">
+      <mat-datepicker-toggle matSuffix [for]="picker2">
+      </mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field appearance="fill" id="runter">
+    <mat-label>E-Mail-Adresse:</mat-label>
+    <input matInput type="email" name="E-Mail-Adresse" placeholder="Deine E-Mail-Adresse" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" id="runter">
+    <mat-label>Handynummer</mat-label>
+    <input matInput type="tel" name="Handynummer" placeholder="Handynummer">
+    </mat-form-field>
       <p> </p>
     <button type="submit" id="kaufen" mat-raised-button color="primary" >Kostenpflichtig kaufen</button>
   </form>

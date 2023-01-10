@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./problemmelden.component.scss']
 })
 export class ProblemmeldenComponent {
-
+  input = '';
+  questionText = '';
+  uniqueId = '';
 }
