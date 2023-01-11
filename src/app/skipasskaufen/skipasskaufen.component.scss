@@ -73,3 +73,10 @@ button{
     }
 
 }
+@media (min-width:851px) and (max-width:1200px){
+  .teil1, .teil3{
+      width:15%;
+    }
+   .teil2, .teil4{
+      width:70%;}
+}

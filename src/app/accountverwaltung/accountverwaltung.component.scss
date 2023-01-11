@@ -2,7 +2,7 @@ body{
 height:auto;
 background-position: center;
 background-size: cover;
-background-image: url("../../assets/Pictures/picture.jpg");
+background-image: url("../../assets/Pictures/skipiste2.jpg");
 }
 html, body {
     height: auto;
@@ -39,4 +39,29 @@ display:grid;
   padding-bottom: 150px;
   display:grid;
   justify-content: center;
+}
+
+@media(max-width:850px){
+  .teil2 h1{
+    font-size: 40px;
+    text-align: center;
+    margin-top: 30px;
+  }
+  .teil1{
+  width:100%;
+  margin-left:0%;
+  }
+
+}
+@media (min-width:851px) and (max-width:1400px){
+  .teil1{
+    width:70%;
+    margin-left:15%;
+    }
+
+}
+@media(min-width:2000px){
+.teil1{
+  padding-bottom: 150px;
+}
 }
