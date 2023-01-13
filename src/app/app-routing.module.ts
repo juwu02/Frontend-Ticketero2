@@ -12,6 +12,7 @@ import { SkipasskaufenComponent } from './skipasskaufen/skipasskaufen.component'
 import { HomepageComponent } from './homepage/homepage.component';
 import { KontaktdatenComponent } from './kontaktdaten/kontaktdaten.component';
 import { ProblemmeldenComponent } from './problemmelden/problemmelden.component';
+import {ImpressumComponent} from "./impressum/impressum.component";
 
 const routes: Routes = [
   {path: 'bevorstehendeEvents',
@@ -47,6 +48,8 @@ const routes: Routes = [
   {path:'problemmelden',
       component: ProblemmeldenComponent
     },
+  {path: 'impressum',
+    component: ImpressumComponent},
 ];
 
 @NgModule({

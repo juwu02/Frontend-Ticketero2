@@ -1,0 +1,34 @@
+<html>
+<head>
+  <title>Impressum</title>
+</head>
+<body>
+<section class="impressum">
+  <div class="teil1"> </div>
+  <div class="teil2">
+    <h1>Impressum</h1>
+    <mat-list>
+      <div mat-subheader>Unternehmen</div>
+      <mat-list-item *ngFor="let folder of folders">
+        <mat-icon matListItemIcon>info</mat-icon>
+        <div matListItemTitle>{{folder.name}}</div>
+        <div matListItemLine>{{folder.beschreibung}}</div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <div mat-subheader>Datenschutz</div>
+      <mat-list-item *ngFor="let note of notes">
+        <mat-icon matListItemIcon>fingerprint</mat-icon>
+        <div matListItemTitle>{{note.name}}</div>
+        <div matListItemLine>{{note.beschreibung}}</div>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <div class="teil3"> </div>
+</section>
+<section class="hinweis">
+  <div class="teil1"></div>
+  <div class="teil3"></div>
+</section>
+</body>
+</html>
+
