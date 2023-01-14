@@ -51,7 +51,7 @@ import { ImpressumComponent } from './impressum/impressum.component';
     HomepageComponent,
     KontaktdatenComponent,
     ProblemmeldenComponent,
-    ImpressumComponent
+    ImpressumComponent,
   ],
   imports: [
     BrowserModule,

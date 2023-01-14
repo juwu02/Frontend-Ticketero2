@@ -14,7 +14,7 @@ export class AppComponent {
   constructor(private httpClient: HttpClient) {
   }
 
-  sayHi() {
+  /*sayHi() {
     this.httpClient.get('http://127.0.0.1:5000/').subscribe(data => {
       this.serverData = data as JSON;
       console.log(this.serverData);
@@ -26,5 +26,5 @@ export class AppComponent {
       this.usersData = data as JSON;
       console.log(this.usersData);
     })
-  }
+  }*/
 }
