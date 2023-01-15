@@ -17,13 +17,9 @@
           <li><a href="https://www.aletscharena.ch/aletsch-arena/orte/fiescheralp">Fiescheralp</a></li>
         </ul>
       </li>
-      <li><a href="#" class="ohne">Sprache</a>
-        <ul class="dropdown">
-          <li><option value="de">Deutsch</option></li>
-          <li><option value="en">Englisch</option></li>
-        </ul>
-      </li>
+      <li><a [routerLink]="['/accountverwaltung']" >Account</a> </li>
       <li><a [routerLink]="['/kontaktformular']">Kontakt</a></li>
+      <li><a [routerLink]="['/impressum']" >Impressum</a> </li>
     </ul>
   </nav>
   <a class="logIn" [routerLink]="['/anmelden']"> Login  </a>
