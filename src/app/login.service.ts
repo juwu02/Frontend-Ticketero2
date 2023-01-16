@@ -26,6 +26,10 @@ export class LoginService {
     )
   }
 
+  register(firstname: string, lastname:string, email: string, birthday: string, phonenumber: string, password: string) {
+    return this.apiService.register(firstname, lastname, email, birthday, phonenumber, password)
+  }
+
 
   /*getUsers(): Observable<User> {
     const users = this.httpClient.get<User>('https://apptest-pd35.onrender.com/login?uname=12345&psw=12345');
