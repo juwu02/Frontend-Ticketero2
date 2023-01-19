@@ -17,14 +17,14 @@ export class LoginService {
     this._isLoggedIn$.next(!!token);
   }
 
-  login(email: string, password: string) {
+  /*login(email: string, password: string) {
     return this.apiService.login(email, password).pipe(
       tap((response: any) => {
         this._isLoggedIn$.next(true);
         localStorage.setItem('ticketero_auth', response.token);
       })
     )
-  }
+  }*/
 
   register(firstname: string, lastname:string, email: string, birthday: string, phonenumber: string, password: string) {
     return this.apiService.register(firstname, lastname, email, birthday, phonenumber, password)

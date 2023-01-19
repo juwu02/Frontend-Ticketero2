@@ -27,11 +27,11 @@ export class AnmeldemaskeComponent {
     if (this.form.invalid){
       return;
 
-      this.loginService
+      /*this.loginService
         .login(this.form.get('email')?.value, this.form.get('password')?.value)
         .subscribe((response) => {
           this.router.navigate(['/accountverwaltung']);
-        })
+        })*/
     }
   }
 
