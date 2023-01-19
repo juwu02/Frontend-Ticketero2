@@ -4,6 +4,7 @@ import { LoginService } from "../login.service";
 import {User} from "../user";
 import {Router} from "@angular/router";
 
+
 @Component({
   selector: 'app-anmeldemaske',
   templateUrl: './anmeldemaske.component.html',
@@ -11,16 +12,21 @@ import {Router} from "@angular/router";
 })
 export class AnmeldemaskeComponent {
 
+  loading = false;
+  submitted = false;
+
   form = new FormGroup({
     email: new FormControl(null, Validators.required),
     password: new FormControl(null, Validators.required)
   });
+
   user: User;
 
   email: string = "";
   password: string = "";
 
   constructor(private loginService: LoginService, private router: Router) {
+    this.loginService.user.subscribe(x => this.user = x);
       }
 
   submitForm() {
@@ -35,10 +41,21 @@ export class AnmeldemaskeComponent {
     }
   }
 
-  /*clear(){
+  /*onSubmit() {
+    this.submitted = true;
+
+    if (this.form.invalid) {
+      return;
+    }
+
+    this.loading = true;
+    this.createUser();
+  }*/
+
+  clear(){
     this.email = "";
     this.password = "";
-  }*/
+  }
 
   email1 = new FormControl('', [Validators.required, Validators.email]);
 

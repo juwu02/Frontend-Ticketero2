@@ -7,30 +7,34 @@
   <div class="teil1"> </div>
   <div class="teil2">
     <h1>Registrieren bei Ticketero</h1>
-<form class="example-container">
+<form class="example-container" [formGroup]="form">
   <mat-form-field>
     <mat-label>Vorname</mat-label>
-    <input matInput placeholder="Vorname" type="text" [(ngModel)] ="firstName" name="firstName" required>
+    <input matInput placeholder="Vorname" type="text" formControlName="firstName" required>
   </mat-form-field><br>
   <mat-form-field>
     <mat-label>Nachname</mat-label>
-    <input matInput placeholder="Nachname" type="text" [(ngModel)] ="lastName" name="lastName" required>
+    <input matInput placeholder="Nachname" type="text" formControlName="lastName" required>
   </mat-form-field><br>
+  <!--<mat-form-field appearance="fill">
+    <mat-label>E-Mail Adresse</mat-label>
+    <input matInput placeholder="email@example.com" [formControl]="email1" type="email" [(ngModel)] ="email" name="email" required>
+    <mat-error *ngIf="email1.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>-->
   <mat-form-field appearance="fill">
   <mat-label>E-Mail Adresse</mat-label>
-  <input matInput placeholder="email@example.com" [formControl]="email1" type="email" [(ngModel)] ="email" name="email" required>
-  <mat-error *ngIf="email1.invalid">{{getErrorMessage()}}</mat-error>
+  <input matInput placeholder="email@example.com" formControlName="email" type="email" required>
 </mat-form-field><br>
   <mat-form-field appearance="fill">
     <mat-label>Passwort eingeben</mat-label>
-    <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]= "password" name="password" required>
+    <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Passwort verbergen'" [attr.aria-pressed]="hide">
       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
     </button>
   </mat-form-field>
   <mat-form-field color="primary" appearance="fill">
     <mat-label>Geburtsdatum</mat-label>
-    <input matInput [matDatepicker]="picker2">
+    <input matInput [matDatepicker]="picker2" formControlName="birthday">
     <mat-datepicker-toggle matSuffix [for]="picker2">
     </mat-datepicker-toggle>
     <mat-datepicker #picker2></mat-datepicker>
@@ -38,11 +42,11 @@
   <br>
   <mat-form-field appearance="fill" id="runter">
     <mat-label>Handynummer</mat-label>
-    <input matInput type="tel" name="Handynummer" placeholder="Handynummer">
+    <input matInput type="tel" formControlName="phonenumber" placeholder="Handynummer">
   </mat-form-field>
   <mat-checkbox color="primary">Ich habe die AGB gelesen und akzeptiert</mat-checkbox>
   <br><br>
-    <button mat-raised-button color="primary" (click)="submit()">Registrieren</button><br>
+    <button mat-raised-button color="primary" (click)="onSubmit()">Registrieren</button><br>
   </form>
     <span class="abstand">Bereits einen Account bei Ticketero? Einfach hier anmelden</span> <br>
     <button class="abstand" mat-raised-button color="primary" [routerLink]="['/anmelden']">Anmelden</button>

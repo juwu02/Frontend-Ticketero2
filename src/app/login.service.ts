@@ -1,38 +1,55 @@
 import { Injectable } from '@angular/core';
-import { User } from "./user";
-import {BehaviorSubject, Observable, of, tap} from "rxjs";
+import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { ApiService } from "./api.service";
+import {BehaviorSubject, Observable, map} from "rxjs";
+
+import { User } from "./user";
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class LoginService {
 
-  private _isLoggedIn$ = new BehaviorSubject<boolean>(false);
-  isLoggedIn$ = this._isLoggedIn$.asObservable();
+  private userSubject: BehaviorSubject<User>;
+  public user: Observable<User>;
 
-  constructor(private apiService: ApiService) {
-    const token = localStorage.getItem('ticketero_auth');
-    this._isLoggedIn$.next(!!token);
+  API_URL = "https://apptest-pd35.onrender.com/";
+
+  constructor( private httpClient: HttpClient, private router: Router) {
+    this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')));
+    this.user = this.userSubject.asObservable();
   }
 
-  /*login(email: string, password: string) {
-    return this.apiService.login(email, password).pipe(
-      tap((response: any) => {
-        this._isLoggedIn$.next(true);
-        localStorage.setItem('ticketero_auth', response.token);
-      })
-    )
-  }*/
-
-  register(firstname: string, lastname:string, email: string, birthday: string, phonenumber: string, password: string) {
-    return this.apiService.register(firstname, lastname, email, birthday, phonenumber, password)
+  login(email, password) {
+    return this.httpClient.post<User>(this.API_URL + 'login', { email, password })
+      .pipe(map(user => {
+        localStorage.setItem('user', JSON.stringify(user));
+        this.userSubject.next(user);
+        return user;
+      }));
   }
 
+  //brauchen wir das?
+  logout() {
+    localStorage.removeItem('user');
+    this.userSubject.next(null);
+    this.router.navigate(['/homepage']);
+  }
+
+  register(user: User) {
+    return this.httpClient.post(this.API_URL + 'register', user);
+  }
+
+  getById(id: string) {
+    return this.httpClient.get<User>(this.API_URL + 'users' + id.toString());
+  }
 
   /*getUsers(): Observable<User> {
-    const users = this.httpClient.get<User>('https://apptest-pd35.onrender.com/login?uname=12345&psw=12345');
+    const users = this.httpClient.get<User>('https://apptest-pd35.onrender.com/allTickets');
     return users;
-  }   */
+  }
+  public get userValue(): User {
+    return this.userSubject.value;
+  }*/
 }
