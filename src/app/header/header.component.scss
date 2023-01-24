@@ -18,7 +18,9 @@ header{
   justify-content: space-between;
   z-index: 1000;
 }
-
+.ohne{
+cursor:none;
+}
 header .logo{
   font-weight: bolder;
   font-size: 30px;
@@ -89,7 +91,7 @@ header label{
 
 
 
-@media(max-width:850px){
+@media(max-width:1050px){
   header{
     padding: 20px;
     padding: 0px 7%;

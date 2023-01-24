@@ -4,21 +4,21 @@
 <div class="teil1"> </div>
 <div class="teil2">
   <h1>Kaufe dein Skipass</h1>
-  <form action="https://formsubmit.co/el/zipice" method="POST" >
+  <form #ticketBuy="ngForm" (ngSubmit)="onSubmit(ticketBuy.value)" action="https://formsubmit.co/el/zipice" method="POST" >
 
     <mat-form-field appearance="fill" >
     <mat-label>Vorname:</mat-label>
-    <input matInput type="text" name="vorname" placeholder="Vorname" required>
+    <input matInput type="text" name="vorname" placeholder="Vorname" ngModel required>
     </mat-form-field>
 
     <mat-form-field appearance="fill" id="runter">
     <mat-label>Nachname:</mat-label>
-    <input matInput type="text" name="Nachname" placeholder="Nachname"required>
+    <input matInput type="text" name="Nachname" placeholder="Nachname" ngModel required>
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Wähle ein Tarif aus:</mat-label>
-      <mat-select>
+      <mat-select name="Tarif" ngModel >
         <mat-option *ngFor="let food of foods" [value]="food.value">
           {{food.viewValue}}
         </mat-option>
@@ -27,7 +27,7 @@
 
     <mat-form-field color="primary" appearance="fill">
       <mat-label>Geburtsdatum</mat-label>
-      <input matInput [matDatepicker]="picker2">
+      <input matInput [matDatepicker]="picker2" ngModel>
       <mat-datepicker-toggle matSuffix [for]="picker2">
       </mat-datepicker-toggle>
       <mat-datepicker #picker2></mat-datepicker>
@@ -36,12 +36,12 @@
 
     <mat-form-field appearance="fill" id="runter">
     <mat-label>E-Mail-Adresse:</mat-label>
-    <input matInput type="email" name="E-Mail-Adresse" placeholder="Deine E-Mail-Adresse" required>
+    <input matInput type="email" name="E-Mail-Adresse" placeholder="Deine E-Mail-Adresse" ngModel required>
     </mat-form-field>
 
     <mat-form-field appearance="fill" id="runter">
     <mat-label>Handynummer</mat-label>
-    <input matInput type="tel" name="Handynummer" placeholder="Handynummer">
+    <input matInput type="tel" name="Handynummer" placeholder="Handynummer" ngModel >
     </mat-form-field>
       <p> </p>
     <button type="submit" id="kaufen" mat-raised-button color="primary" >Kostenpflichtig kaufen</button>

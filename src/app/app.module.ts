@@ -12,6 +12,9 @@ import {MatInputModule} from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import {MatSelectModule} from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatListModule} from '@angular/material/list';
+
 import { QRCodeModule } from "angular2-qrcode";
 
 
@@ -32,6 +35,7 @@ import {from} from "rxjs";
 import {MatIconModule} from "@angular/material/icon";
 import { ProblemmeldenComponent } from './problemmelden/problemmelden.component';
 import { MatNativeDateModule } from  '@angular/material/core';
+import { ImpressumComponent } from './impressum/impressum.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +50,8 @@ import { MatNativeDateModule } from  '@angular/material/core';
     SkipasskaufenComponent,
     HomepageComponent,
     KontaktdatenComponent,
-    ProblemmeldenComponent
+    ProblemmeldenComponent,
+    ImpressumComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,7 +70,9 @@ import { MatNativeDateModule } from  '@angular/material/core';
     MatDatepickerModule,
     MatNativeDateModule,
     MatButtonToggleModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

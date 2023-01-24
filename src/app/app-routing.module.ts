@@ -12,20 +12,15 @@ import { SkipasskaufenComponent } from './skipasskaufen/skipasskaufen.component'
 import { HomepageComponent } from './homepage/homepage.component';
 import { KontaktdatenComponent } from './kontaktdaten/kontaktdaten.component';
 import { ProblemmeldenComponent } from './problemmelden/problemmelden.component';
+import {ImpressumComponent} from "./impressum/impressum.component";
 
 const routes: Routes = [
-  {path: 'bevorstehendeEvents',
+  {path: 'tickets',
     component: BevorstehendeEventsComponent},
   {path: 'accountverwaltung',
        component: AccountverwaltungComponent
   },
-  {path: 'footerComponent',
-       component: FooterComponent
-  },
-  {path: 'headerComponent',
-       component: HeaderComponent
-  },
-  {path: 'registrierungsmaske',
+  {path: 'registrieren',
        component: RegistrierungsmaskeComponent
   },
   {path: 'kontaktformular',
@@ -37,7 +32,6 @@ const routes: Routes = [
   {path: 'homepage',
        component: HomepageComponent
   },
-
   {path:'kontaktdaten',
       component: KontaktdatenComponent
   },
@@ -47,6 +41,8 @@ const routes: Routes = [
   {path:'problemmelden',
       component: ProblemmeldenComponent
     },
+  {path: 'impressum',
+    component: ImpressumComponent},
 ];
 
 @NgModule({

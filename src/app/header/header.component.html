@@ -6,7 +6,7 @@
   <nav class="navbar">
     <ul>
       <li><a [routerLink]="['/homepage']">Info</a></li>
-      <li><a href="#">Skigebiete</a>
+      <li><a href="#" class="ohne">Skigebiete</a>
         <ul class="dropdown">
           <li><a href="https://www.belalp.ch/poi-detail/belalp-bahnen-ag">Belalp Bahnen AG</a></li>
           <li><a href="https://www.rosswald-bahnen.ch/">Rosswald Bahnen AG</a></li>
@@ -17,13 +17,9 @@
           <li><a href="https://www.aletscharena.ch/aletsch-arena/orte/fiescheralp">Fiescheralp</a></li>
         </ul>
       </li>
-      <li><a>Sprache</a>
-        <ul class="dropdown">
-          <li><option value="de">Deutsch</option></li>
-          <li><option value="en">Englisch</option></li>
-        </ul>
-      </li>
+      <li><a [routerLink]="['/accountverwaltung']" >Account</a> </li>
       <li><a [routerLink]="['/kontaktformular']">Kontakt</a></li>
+      <li><a [routerLink]="['/impressum']" >Impressum</a> </li>
     </ul>
   </nav>
   <a class="logIn" [routerLink]="['/anmelden']"> Login  </a>

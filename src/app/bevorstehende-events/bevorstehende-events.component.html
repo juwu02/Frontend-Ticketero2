@@ -9,10 +9,20 @@
     <h1>Deine Skipässe</h1>
     <!--<h2>Skipass Liste</h2>
     <ul>
-      <li *ngFor="let skipass of skipaesse">
+      <li *ngFor="let skipass of skipaesse" (click)="onSelected(skipass)">
         <span>{{skipass.id}}</span>{{skipass.vorname}}
       </li>
-    </ul>-->
+    </ul>
+
+    <div *ngIf="selectedSkipass">
+      <h2>{{selectedSkipass.vorname}}</h2>
+      <div><span>id: </span>{{selectedSkipass.id}}</div>
+      <div>
+        <label for="skipass-name">Skipass Name: </label>
+        <input id="skipass-name" [(ngModel)]="selectedSkipass.vorname">
+      </div>
+      <button (click)="save()">Speichern</button>
+    </div>-->
 
     <ng-template [ngIf]="show==0">
       <p>Noch kein Skipass vorhanden?</p>

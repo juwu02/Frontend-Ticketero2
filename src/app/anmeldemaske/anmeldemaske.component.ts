@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import {FormBuilder, FormControl, Validators} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import { LoginService } from "../login.service";
 import {User} from "../user";
+import {Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-anmeldemaske',
@@ -10,16 +12,45 @@ import {User} from "../user";
 })
 export class AnmeldemaskeComponent {
 
-  //users: User[] = [];
+  loading = false;
+  submitted = false;
+
+  form = new FormGroup({
+    email: new FormControl(null, Validators.required),
+    password: new FormControl(null, Validators.required)
+  });
+
   user: User;
 
   email: string = "";
   password: string = "";
 
-  submit() {
-    console.log("Der User " + this.email + " ist eingeloggt")
-    this.clear();
+  constructor(private loginService: LoginService, private router: Router) {
+    this.loginService.user.subscribe(x => this.user = x);
+      }
+
+  submitForm() {
+    if (this.form.invalid){
+      return;
+
+      /*this.loginService
+        .login(this.form.get('email')?.value, this.form.get('password')?.value)
+        .subscribe((response) => {
+          this.router.navigate(['/accountverwaltung']);
+        })*/
+    }
   }
+
+  /*onSubmit() {
+    this.submitted = true;
+
+    if (this.form.invalid) {
+      return;
+    }
+
+    this.loading = true;
+    this.createUser();
+  }*/
 
   clear(){
     this.email = "";
@@ -34,10 +65,7 @@ export class AnmeldemaskeComponent {
 
   hide=true;
 
-  constructor(private loginService: LoginService) {
-  }
-
-  ngOnInit(): void {
+  /*ngOnInit(): void {
     this.getUsers();
   }
 
@@ -46,6 +74,6 @@ export class AnmeldemaskeComponent {
       .subscribe(x => {
         console.log(x)
         this.user = x
-      });
+      });*/
 
-}}
+}

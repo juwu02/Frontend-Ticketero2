@@ -7,23 +7,23 @@
   <div class="teil1"> </div>
   <div class="teil2">
     <h1>Anmelden bei Ticketero</h1>
-    <h2>Hallo {{user.firstname}}</h2>
-    <form class="example-container">
+    <h2>Hallo {{user.name}}</h2>
+    <form class="example-container" (ngSubmit)="submitForm()" [formGroup]="form">
       <mat-form-field appearance="fill">
         <mat-label>E-Mail Adresse</mat-label>
-        <input matInput placeholder="email@example.com" [formControl]="email1" type="email" [(ngModel)] ="email" name="email" required>
+        <input matInput placeholder="email@example.com" [formControl]="email1" type="email" [formControlName]="email" required>
         <mat-error *ngIf="email1.invalid">{{getErrorMessage()}}</mat-error>
       </mat-form-field><br>
       <mat-form-field appearance="fill">
         <mat-label>Passwort eingeben</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]= "password" name="password" required>
+        <input matInput [type]="hide ? 'password' : 'text'" [formControlName]="password" required>
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Passwort verbergen'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
       </mat-form-field>
-        <button mat-raised-button color="primary"  (click)="submit()">Anmelden</button><br>
+        <button mat-raised-button color="primary"  type="submit">Anmelden</button><br>
         <p>Noch keinen Account bei Ticketero? Einfach hier registrieren</p>
-        <button mat-raised-button color="primary" [routerLink]="['/registrierungsmaske']">Registrieren</button>
+        <button mat-raised-button color="primary" [routerLink]="['/registrieren']">Registrieren</button>
   </form>
   </div>
   <div class="teil3"> </div>
