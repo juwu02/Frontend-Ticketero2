@@ -41,7 +41,11 @@ display:grid;
   justify-content: center;
 }
 
-@media(max-width:850px){
+.liste_der_optionen p {
+padding-top:30px;
+}
+
+  @media(max-width:850px){
   .teil2 h1{
     font-size: 40px;
     text-align: center;
@@ -65,3 +69,5 @@ display:grid;
   padding-bottom: 150px;
 }
 }
+
+
