@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormControl, FormBuilder, Validators, FormGroup} from "@angular/forms";
 import { LoginService } from "../login.service";
 import {User} from "../user";
-import {Router} from "@angular/router";
+import {Router, ActivatedRoute} from "@angular/router";
+import {first} from "rxjs";
 
 
 @Component({
@@ -12,24 +13,70 @@ import {Router} from "@angular/router";
 })
 export class AnmeldemaskeComponent {
 
+  form: FormGroup;
   loading = false;
   submitted = false;
-
-  form = new FormGroup({
-    email: new FormControl(null, Validators.required),
-    password: new FormControl(null, Validators.required)
-  });
-
   user: User;
 
-  email: string = "";
-  password: string = "";
-
-  constructor(private loginService: LoginService, private router: Router) {
+    constructor(private loginService: LoginService, private router: Router, private formBuilder: FormBuilder, private route: ActivatedRoute) {
     this.loginService.user.subscribe(x => this.user = x);
       }
 
-  submitForm() {
+  ngOnInit() {
+    this.form = this.formBuilder.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+  }
+
+  get f() {
+      return this.form.controls;
+  }
+
+  onSubmit() {
+      this.submitted = true;
+
+      if (this.form.invalid) {
+        return;
+      }
+
+      this.loading = true;
+      this.loginService.login(this.f['email'].value, this.f['password'].value)
+        .pipe(first())
+        .subscribe({
+          next: () => {
+            const returnUrl = this.route.snapshot.queryParams['returnUrl']
+            this.router.navigateByUrl(returnUrl);
+          },
+          error: error => {
+            this.loading = false;
+          }
+        });
+  }
+
+  /* login(){
+     //this.loginService
+       //.login(this.form.get('email')?.value, this.form.get('password')?.value)
+     this.submitted = true;
+
+     if (this.form.invalid) {
+       return;
+     }
+
+     this.loginUser();
+   }
+
+   private loginUser() {
+     this.loginService.login(this.form.get('email')?.value, this.form.get('password')?.value)
+       .subscribe({
+         next: () => {
+           console.log('User wurde erfolgreich angemeldet');
+           this.router.navigateByUrl("/accountverwaltung", {skipLocationChange: true});
+         }
+       });
+   }*/
+
+/*submitForm() {
     if (this.form.invalid){
       return;
 
@@ -38,8 +85,8 @@ export class AnmeldemaskeComponent {
         .subscribe((response) => {
           this.router.navigate(['/accountverwaltung']);
         })*/
-    }
-  }
+   // }
+  //}
 
   /*onSubmit() {
     this.submitted = true;
@@ -52,10 +99,10 @@ export class AnmeldemaskeComponent {
     this.createUser();
   }*/
 
-  clear(){
+  /*clear(){
     this.email = "";
     this.password = "";
-  }
+  }*/
 
   email1 = new FormControl('', [Validators.required, Validators.email]);
 

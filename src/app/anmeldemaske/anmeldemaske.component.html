@@ -7,16 +7,15 @@
   <div class="teil1"> </div>
   <div class="teil2">
     <h1>Anmelden bei Ticketero</h1>
-    <h2>Hallo {{user.name}}</h2>
-    <form class="example-container" (ngSubmit)="submitForm()" [formGroup]="form">
+   <form class="example-container" [formGroup]="form" (ngSubmit)="onSubmit()">
       <mat-form-field appearance="fill">
         <mat-label>E-Mail Adresse</mat-label>
-        <input matInput placeholder="email@example.com" [formControl]="email1" type="email" [formControlName]="email" required>
-        <mat-error *ngIf="email1.invalid">{{getErrorMessage()}}</mat-error>
+        <input matInput placeholder="email@example.com"  type="email" formControlName="email" required>
+       <!--<mat-error *ngIf="email1.invalid">{{getErrorMessage()}}</mat-error>   [formControl]="email1"-->
       </mat-form-field><br>
       <mat-form-field appearance="fill">
         <mat-label>Passwort eingeben</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'" [formControlName]="password" required>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Passwort verbergen'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>

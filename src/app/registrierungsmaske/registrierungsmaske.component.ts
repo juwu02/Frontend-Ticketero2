@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {ReactiveFormsModule } from "@angular/forms";
 import {first} from "rxjs";
 import {User} from "../user";
 import {LoginService} from "../login.service";
-import {Router} from "@angular/router";
+import {Router, ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-registrierungsmaske',
@@ -19,7 +18,7 @@ export class RegistrierungsmaskeComponent {
 
   user: User;
 
-  constructor(private loginService: LoginService, private router: Router, private formBuilder: FormBuilder) {
+  constructor(private route: ActivatedRoute, private loginService: LoginService, private router: Router, private formBuilder: FormBuilder) {
     this.loginService.user.subscribe(x => this.user = x);
   }
 
@@ -28,9 +27,10 @@ export class RegistrierungsmaskeComponent {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', Validators.required],
-      password: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(5)]],
       birthday: ['', Validators.required],
-      phonenumber: ['', Validators.required]
+      phonenumber: ['', [Validators.required, Validators.minLength(8)]],
+      agb: ['', Validators.required]
     })
   }
 
@@ -45,21 +45,32 @@ export class RegistrierungsmaskeComponent {
       return;
     }
 
-    this.createUser();
+    this.loading = true;
+    this.loginService.register(this.form.value)
+      .pipe(first())
+      .subscribe({
+        next: () => {
+          this.router.navigate(['/login'], { relativeTo: this.route});
+        },
+      })
   }
+
+  /*register() {
+    this.createUser();
+    }
 
   /*submit() {
     console.log("Der User " + this.firstName + " " + this.lastName + " wurde registriert")
     this.clear();
   }*/
 
-  private createUser() {
+ /* private createUser() {
     this.loginService.register(this.form.value)
       .pipe(first())
       .subscribe({
         next: () => {
           console.log('User wurde erfolgreich hinzugefügt');
-          this.router.navigateByUrl("/homepage");
+          this.router.navigateByUrl("/homepage", { skipLocationChange: true });
         },
       });
   }

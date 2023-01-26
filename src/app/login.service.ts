@@ -21,6 +21,10 @@ export class LoginService {
     this.user = this.userSubject.asObservable();
   }
 
+  public get userValue(): User {
+    return this.userSubject.value;
+  }
+
   login(email, password) {
     return this.httpClient.post<User>(this.API_URL + 'login', { email, password })
       .pipe(map(user => {
@@ -52,4 +56,5 @@ export class LoginService {
   public get userValue(): User {
     return this.userSubject.value;
   }*/
+
 }

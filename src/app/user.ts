@@ -5,6 +5,8 @@ export interface User {
   lastname: String;
   email: String;
   birthday: String;
-  phonenumber: String;
+  phonenumber: number;
   password: String;
+  agb: boolean;
+  token: String;
 }
