@@ -31,7 +31,6 @@ import { KontaktformularComponent } from './kontaktformular/kontaktformular.comp
 import { SkipasskaufenComponent } from './skipasskaufen/skipasskaufen.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { KontaktdatenComponent } from './kontaktdaten/kontaktdaten.component';
-import {from} from "rxjs";
 import {MatIconModule} from "@angular/material/icon";
 import { ProblemmeldenComponent } from './problemmelden/problemmelden.component';
 import { MatNativeDateModule } from  '@angular/material/core';
@@ -72,7 +71,7 @@ import { ImpressumComponent } from './impressum/impressum.component';
     MatButtonToggleModule,
     MatSelectModule,
     MatCheckboxModule,
-    MatListModule
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {BehaviorSubject, Observable, map, catchError, tap} from "rxjs";
+import {BehaviorSubject, Observable, map, tap} from "rxjs";
 
 import { User } from "./user";
 
@@ -19,7 +19,6 @@ export class LoginService {
   httpOptions = {
     header: new HttpHeaders({'Content-Type': 'application/json'})
   }
-
 
   headers= new HttpHeaders()
     .set('content-type', 'application/json')
@@ -51,10 +50,6 @@ export class LoginService {
     this.router.navigate(['/homepage']);
   }
 
-  /*register(user: User) {
-    return this.httpClient.post(this.API_URL + 'register', user);
-  }*/
-
   register(user: User): Observable<User> {
     return this.httpClient.post<User>(this.API_URL + 'register', user, {'headers': this.headers}).pipe(
       tap((newUser: User) => console.log(`neuer User registriert name=$(newUser.firstName`))
@@ -64,13 +59,4 @@ export class LoginService {
   getById(id: string) {
     return this.httpClient.get<User>(this.API_URL + 'users' + id.toString());
   }
-
-  /*getUsers(): Observable<User> {
-    const users = this.httpClient.get<User>('https://apptest-pd35.onrender.com/allTickets');
-    return users;
-  }
-  public get userValue(): User {
-    return this.userSubject.value;
-  }*/
-
 }

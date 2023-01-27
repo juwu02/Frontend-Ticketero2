@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {FormControl, FormBuilder, Validators, FormGroup} from "@angular/forms";
 import { LoginService } from "../login.service";
 import {User} from "../user";
-import {Router, ActivatedRoute} from "@angular/router";
+import {Router} from "@angular/router";
 import {first} from "rxjs";
 
 @Component({
@@ -17,7 +17,7 @@ export class AnmeldemaskeComponent {
   submitted = false;
   user: User;
 
-  constructor(private loginService: LoginService, private router: Router, private formBuilder: FormBuilder, private route: ActivatedRoute) {
+  constructor(private loginService: LoginService, private router: Router, private formBuilder: FormBuilder) {
     this.loginService.user.subscribe(x => this.user = x);
   }
 
@@ -53,56 +53,6 @@ export class AnmeldemaskeComponent {
       });
   }
 
-  /* login(){
-     //this.loginService
-       //.login(this.form.get('email')?.value, this.form.get('password')?.value)
-     this.submitted = true;
-
-     if (this.form.invalid) {
-       return;
-     }
-
-     this.loginUser();
-   }
-
-   private loginUser() {
-     this.loginService.login(this.form.get('email')?.value, this.form.get('password')?.value)
-       .subscribe({
-         next: () => {
-           console.log('User wurde erfolgreich angemeldet');
-           this.router.navigateByUrl("/accountverwaltung", {skipLocationChange: true});
-         }
-       });
-   }*/
-
-  /*submitForm() {
-      if (this.form.invalid){
-        return;
-
-        /*this.loginService
-          .login(this.form.get('email')?.value, this.form.get('password')?.value)
-          .subscribe((response) => {
-            this.router.navigate(['/accountverwaltung']);
-          })*/
-  // }
-  //}
-
-  /*onSubmit() {
-    this.submitted = true;
-
-    if (this.form.invalid) {
-      return;
-    }
-
-    this.loading = true;
-    this.createUser();
-  }*/
-
-  /*clear(){
-    this.email = "";
-    this.password = "";
-  }*/
-
   email1 = new FormControl('', [Validators.required, Validators.email]);
 
   getErrorMessage() {
@@ -110,16 +60,5 @@ export class AnmeldemaskeComponent {
   }
 
   hide=true;
-
-  /*ngOnInit(): void {
-    this.getUsers();
-  }
-
-  getUsers(): void{
-    this.loginService.getUsers()
-      .subscribe(x => {
-        console.log(x)
-        this.user = x
-      });*/
 
 }

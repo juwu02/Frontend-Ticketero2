@@ -13,14 +13,17 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { KontaktdatenComponent } from './kontaktdaten/kontaktdaten.component';
 import { ProblemmeldenComponent } from './problemmelden/problemmelden.component';
 import {ImpressumComponent} from "./impressum/impressum.component";
+import {AuthGuard} from "./auth.guard";
 
 const routes: Routes = [
   {path: 'tickets',
     component: BevorstehendeEventsComponent,
-    title: 'Tickets'},
+    title: 'Tickets',
+    canActivate:[AuthGuard]},
   {path: 'accountverwaltung',
        component: AccountverwaltungComponent,
-    title: 'Accountverwaltung'
+    title: 'Accountverwaltung',
+    canActivate:[AuthGuard]
   },
   {path: 'registrieren',
        component: RegistrierungsmaskeComponent,
@@ -32,7 +35,8 @@ const routes: Routes = [
   },
   {path: 'skipasskaufen',
        component: SkipasskaufenComponent,
-    title: 'Skipass kaufen'
+    title: 'Skipass kaufen',
+    canActivate:[AuthGuard]
   },
   {path: 'homepage',
        component: HomepageComponent
