@@ -5,7 +5,6 @@ import {User} from "../user";
 import {Router, ActivatedRoute} from "@angular/router";
 import {first} from "rxjs";
 
-
 @Component({
   selector: 'app-anmeldemaske',
   templateUrl: './anmeldemaske.component.html',
@@ -18,9 +17,9 @@ export class AnmeldemaskeComponent {
   submitted = false;
   user: User;
 
-    constructor(private loginService: LoginService, private router: Router, private formBuilder: FormBuilder, private route: ActivatedRoute) {
+  constructor(private loginService: LoginService, private router: Router, private formBuilder: FormBuilder, private route: ActivatedRoute) {
     this.loginService.user.subscribe(x => this.user = x);
-      }
+  }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -30,28 +29,28 @@ export class AnmeldemaskeComponent {
   }
 
   get f() {
-      return this.form.controls;
+    return this.form.controls;
   }
 
   onSubmit() {
-      this.submitted = true;
+    this.submitted = true;
 
-      if (this.form.invalid) {
-        return;
-      }
+    if (this.form.invalid) {
+      return;
+    }
 
-      this.loading = true;
-      this.loginService.login(this.f['email'].value, this.f['password'].value)
-        .pipe(first())
-        .subscribe({
-          next: () => {
-            const returnUrl = this.route.snapshot.queryParams['returnUrl']
-            this.router.navigateByUrl(returnUrl);
-          },
-          error: error => {
-            this.loading = false;
-          }
-        });
+    this.loading = true;
+    this.loginService.login(this.f['email'].value, this.f['password'].value)
+      .pipe(first())
+      .subscribe({
+        next: () => {
+          const returnUrl = this.route.snapshot.queryParams['returnUrl']
+          this.router.navigateByUrl(returnUrl);
+        },
+        error: error => {
+          this.loading = false;
+        }
+      });
   }
 
   /* login(){
@@ -76,16 +75,16 @@ export class AnmeldemaskeComponent {
        });
    }*/
 
-/*submitForm() {
-    if (this.form.invalid){
-      return;
+  /*submitForm() {
+      if (this.form.invalid){
+        return;
 
-      /*this.loginService
-        .login(this.form.get('email')?.value, this.form.get('password')?.value)
-        .subscribe((response) => {
-          this.router.navigate(['/accountverwaltung']);
-        })*/
-   // }
+        /*this.loginService
+          .login(this.form.get('email')?.value, this.form.get('password')?.value)
+          .subscribe((response) => {
+            this.router.navigate(['/accountverwaltung']);
+          })*/
+  // }
   //}
 
   /*onSubmit() {
