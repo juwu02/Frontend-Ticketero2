@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import {BehaviorSubject, Observable, map} from "rxjs";
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {BehaviorSubject, Observable, map, catchError, tap} from "rxjs";
 
 import { User } from "./user";
 
@@ -16,6 +16,15 @@ export class LoginService {
 
   API_URL = "https://apptest-pd35.onrender.com/";
 
+  httpOptions = {
+    header: new HttpHeaders({'Content-Type': 'application/json'})
+  }
+
+
+  headers= new HttpHeaders()
+    .set('content-type', 'application/json')
+    .set('Access-Control-Allow-Origin', '*');
+
   constructor( private httpClient: HttpClient, private router: Router) {
     this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')));
     this.user = this.userSubject.asObservable();
@@ -26,12 +35,13 @@ export class LoginService {
   }
 
   login(email, password) {
-    return this.httpClient.post<User>(this.API_URL + 'login', { email, password })
+    return this.httpClient.post<User>(this.API_URL + 'login', { email, password }, {'headers': this.headers})
       .pipe(map(user => {
         localStorage.setItem('user', JSON.stringify(user));
         this.userSubject.next(user);
         return user;
       }));
+    this.router.navigate(['accountverwaltung']);
   }
 
   //brauchen wir das?
@@ -41,8 +51,14 @@ export class LoginService {
     this.router.navigate(['/homepage']);
   }
 
-  register(user: User) {
+  /*register(user: User) {
     return this.httpClient.post(this.API_URL + 'register', user);
+  }*/
+
+  register(user: User): Observable<User> {
+    return this.httpClient.post<User>(this.API_URL + 'register', user, {'headers': this.headers}).pipe(
+      tap((newUser: User) => console.log(`neuer User registriert name=$(newUser.firstName`))
+    )
   }
 
   getById(id: string) {

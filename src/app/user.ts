@@ -1,12 +1,12 @@
 export interface User {
-  user_id: number;
-  name: String;
-  firstname: String;
-  lastname: String;
-  email: String;
-  birthday: String;
+  user_id: string;
+  name: string;
+  firstname: string;
+  lastname: string;
+  email: string;
+  birthday: string;
   phonenumber: number;
-  password: String;
+  password: string;
   agb: boolean;
-  token: String;
+  token: string;
 }

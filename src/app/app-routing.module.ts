@@ -16,24 +16,30 @@ import {ImpressumComponent} from "./impressum/impressum.component";
 
 const routes: Routes = [
   {path: 'tickets',
-    component: BevorstehendeEventsComponent},
+    component: BevorstehendeEventsComponent,
+    title: 'Tickets'},
   {path: 'accountverwaltung',
-       component: AccountverwaltungComponent
+       component: AccountverwaltungComponent,
+    title: 'Accountverwaltung'
   },
   {path: 'registrieren',
-       component: RegistrierungsmaskeComponent
+       component: RegistrierungsmaskeComponent,
+    title: 'Registrieren'
   },
   {path: 'kontaktformular',
-       component: KontaktformularComponent
+       component: KontaktformularComponent,
+    title: 'Kontaktformular'
   },
   {path: 'skipasskaufen',
-       component: SkipasskaufenComponent
+       component: SkipasskaufenComponent,
+    title: 'Skipass kaufen'
   },
   {path: 'homepage',
        component: HomepageComponent
   },
   {path:'kontaktdaten',
-      component: KontaktdatenComponent
+      component: KontaktdatenComponent,
+    title: 'Kontaktdaten'
   },
   {path:'anmelden',
     component: AnmeldemaskeComponent
@@ -42,7 +48,9 @@ const routes: Routes = [
       component: ProblemmeldenComponent
     },
   {path: 'impressum',
-    component: ImpressumComponent},
+    component: ImpressumComponent,
+    title: 'Impressum'},
+  { path: '',   redirectTo: '/homepage', pathMatch: 'full' },
 ];
 
 @NgModule({
