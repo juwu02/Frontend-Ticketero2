@@ -16,10 +16,6 @@ export class LoginService {
 
   API_URL = "https://apptest-pd35.onrender.com/";
 
-  httpOptions = {
-    header: new HttpHeaders({'Content-Type': 'application/json'})
-  }
-
   headers= new HttpHeaders()
     .set('content-type', 'application/json')
     .set('Access-Control-Allow-Origin', '*');
