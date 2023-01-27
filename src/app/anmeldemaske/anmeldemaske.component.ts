@@ -44,8 +44,8 @@ export class AnmeldemaskeComponent {
       .pipe(first())
       .subscribe({
         next: () => {
-          const returnUrl = this.route.snapshot.queryParams['returnUrl']
-          this.router.navigateByUrl(returnUrl);
+          //const returnUrl = this.route.snapshot.queryParams['returnUrl']
+          this.router.navigate(['accountverwaltung']);
         },
         error: error => {
           this.loading = false;

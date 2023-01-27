@@ -50,7 +50,7 @@ export class RegistrierungsmaskeComponent {
       .pipe(first())
       .subscribe({
         next: () => {
-          this.router.navigate(['/login'], { relativeTo: this.route});
+          this.router.navigate(['accountverwaltung'], { relativeTo: this.route});
         },
       })
   }
