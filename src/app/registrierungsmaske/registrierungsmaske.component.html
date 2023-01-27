@@ -16,18 +16,15 @@
     <mat-label>Nachname</mat-label>
     <input matInput placeholder="Nachname" type="text" formControlName="lastName" required>
   </mat-form-field><br>
-  <!--<mat-form-field appearance="fill">
-    <mat-label>E-Mail Adresse</mat-label>
-    <input matInput placeholder="email@example.com" [formControl]="email1" type="email" [(ngModel)] ="email" name="email" required>
-    <mat-error *ngIf="email1.invalid">{{getErrorMessage()}}</mat-error>
-  </mat-form-field>-->
   <mat-form-field appearance="fill">
   <mat-label>E-Mail Adresse</mat-label>
-  <input matInput placeholder="email@example.com" formControlName="email" type="email" required>
-</mat-form-field><br>
+  <input matInput placeholder="email@example.com" type="email" formControlName="email1" required>
+  <mat-error *ngIf="email1.invalid">{{getErrorMessageMail()}}</mat-error>
+  </mat-form-field><br>
   <mat-form-field appearance="fill">
     <mat-label>Passwort eingeben</mat-label>
     <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
+    <mat-error *ngIf="password.invalid">{{getErrorMessagePassword()}}</mat-error>
     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Passwort verbergen'" [attr.aria-pressed]="hide">
       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
     </button>
@@ -43,6 +40,7 @@
   <mat-form-field appearance="fill" id="runter">
     <mat-label>Handynummer</mat-label>
     <input matInput type="tel" formControlName="phonenumber" placeholder="Handynummer">
+    <mat-error *ngIf="phonenumber.invalid">{{getErrorMessagePhonenumber()}}</mat-error>
   </mat-form-field>
   <mat-checkbox color="primary" formControlName="agb">Ich habe die AGB gelesen und akzeptiert</mat-checkbox>
   <br><br>

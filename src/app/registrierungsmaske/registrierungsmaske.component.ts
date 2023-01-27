@@ -16,6 +16,8 @@ export class RegistrierungsmaskeComponent {
   loading = false;
   submitted = false;
 
+  firstName ='';
+
   user: User;
 
   constructor(private route: ActivatedRoute, private loginService: LoginService, private router: Router, private formBuilder: FormBuilder) {
@@ -26,7 +28,7 @@ export class RegistrierungsmaskeComponent {
     this.form = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      email: ['', Validators.required],
+      email1: ['', Validators.required, Validators.email],
       password: ['', [Validators.required, Validators.minLength(5)]],
       birthday: ['', Validators.required],
       phonenumber: ['', [Validators.required, Validators.minLength(8)]],
@@ -55,38 +57,21 @@ export class RegistrierungsmaskeComponent {
       })
   }
 
-  /*register() {
-    this.createUser();
-    }
+  email1 = new FormControl('', [Validators.required, Validators.email]);
+  password = new FormControl('', [Validators.required, Validators.minLength(5)]);
+  phonenumber = new FormControl('', [Validators.required, Validators.minLength(8)]);
 
-  /*submit() {
-    console.log("Der User " + this.firstName + " " + this.lastName + " wurde registriert")
-    this.clear();
-  }*/
-
- /* private createUser() {
-    this.loginService.register(this.form.value)
-      .pipe(first())
-      .subscribe({
-        next: () => {
-          console.log('User wurde erfolgreich hinzugefügt');
-          this.router.navigateByUrl("/homepage", { skipLocationChange: true });
-        },
-      });
+  getErrorMessageMail() {
+    return this.email1.hasError('email') ? 'Keine echte E-Mail Adresse' : '';
   }
 
-  /*clear(){
-    this.firstName = "";
-    this.lastName = "";
-    this.email = "";
-    this.password = "";
-  }*/
+  getErrorMessagePassword() {
+    return this.password.hasError('password') ? 'Passwort muss mindestens aus 5 Zeichen beestehen' : '';
+  }
 
-  //email1 = new FormControl('', [Validators.required, Validators.email]);
-
-  /*getErrorMessage() {
-    return this.email1.hasError('email') ? 'Keine echte E-Mail Adresse' : '';
-  }*/
+  getErrorMessagePhonenumber() {
+    return this.phonenumber.hasError('phonenumber') ? 'Die Telefonnummer muss mindestens aus 8 Zahlen beestehen' : '';
+  }
 
   hide = true;
 

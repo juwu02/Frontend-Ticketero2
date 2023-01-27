@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { LoginService } from "../login.service";
+import {User} from "../user";
 
 @Component({
   selector: 'app-accountverwaltung',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./accountverwaltung.component.scss']
 })
 export class AccountverwaltungComponent {
+
+  user: User;
+
+  constructor(private loginService: LoginService) {
+    this.loginService.user.subscribe(x => this.user = x);
+  }
 
 }
