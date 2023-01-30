@@ -35,6 +35,7 @@ import {MatIconModule} from "@angular/material/icon";
 import { ProblemmeldenComponent } from './problemmelden/problemmelden.component';
 import { MatNativeDateModule } from  '@angular/material/core';
 import { ImpressumComponent } from './impressum/impressum.component';
+import { AgbComponent } from './agb/agb.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { ImpressumComponent } from './impressum/impressum.component';
     KontaktdatenComponent,
     ProblemmeldenComponent,
     ImpressumComponent,
+    AgbComponent,
   ],
   imports: [
     BrowserModule,

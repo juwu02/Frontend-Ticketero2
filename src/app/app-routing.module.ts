@@ -14,6 +14,7 @@ import { KontaktdatenComponent } from './kontaktdaten/kontaktdaten.component';
 import { ProblemmeldenComponent } from './problemmelden/problemmelden.component';
 import {ImpressumComponent} from "./impressum/impressum.component";
 import {AuthGuard} from "./auth.guard";
+import {AgbComponent } from "./agb/agb.component";
 
 const routes: Routes = [
   {path: 'tickets',
@@ -54,6 +55,9 @@ const routes: Routes = [
   {path: 'impressum',
     component: ImpressumComponent,
     title: 'Impressum'},
+  {path: 'agb',
+    component: AgbComponent,
+    title: 'AGB'},
   { path: '',   redirectTo: '/homepage', pathMatch: 'full' },
 ];
 

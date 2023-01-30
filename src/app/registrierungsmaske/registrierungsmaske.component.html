@@ -42,7 +42,7 @@
     <input matInput type="tel" formControlName="phonenumber" placeholder="Handynummer">
     <mat-error *ngIf="phonenumber.invalid">{{getErrorMessagePhonenumber()}}</mat-error>
   </mat-form-field>
-  <mat-checkbox color="primary" formControlName="agb">Ich habe die AGB gelesen und akzeptiert</mat-checkbox>
+  <mat-checkbox color="primary" formControlName="agb">Ich habe die <a [routerLink]="['/agb']"> AGB</a> gelesen und akzeptiert</mat-checkbox>
   <br><br>
     <button mat-raised-button color="primary">Registrieren</button><br>
   </form>

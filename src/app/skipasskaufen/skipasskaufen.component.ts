@@ -13,6 +13,7 @@ export interface Food {
 })
 export class SkipasskaufenComponent{
   constructor(private http:HttpClient){}
+
     onSubmit(data){
       this.http.post('http://localhost:4200/skipasskaufen', data)
       .subscribe((result)=>{
