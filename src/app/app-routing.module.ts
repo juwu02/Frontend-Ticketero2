@@ -15,6 +15,7 @@ import { ProblemmeldenComponent } from './problemmelden/problemmelden.component'
 import {ImpressumComponent} from "./impressum/impressum.component";
 import {AuthGuard} from "./auth.guard";
 import {AgbComponent } from "./agb/agb.component";
+import { CheckTicketComponent } from './check-ticket/check-ticket.component';
 
 const routes: Routes = [
   {path: 'tickets',
@@ -58,6 +59,10 @@ const routes: Routes = [
   {path: 'agb',
     component: AgbComponent,
     title: 'AGB'},
+  {path: 'checkTicket',
+    component: CheckTicketComponent,
+    title: 'checkticket',
+    },
   { path: '',   redirectTo: '/homepage', pathMatch: 'full' },
 ];
 

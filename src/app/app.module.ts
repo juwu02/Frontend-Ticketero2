@@ -36,6 +36,7 @@ import { ProblemmeldenComponent } from './problemmelden/problemmelden.component'
 import { MatNativeDateModule } from  '@angular/material/core';
 import { ImpressumComponent } from './impressum/impressum.component';
 import { AgbComponent } from './agb/agb.component';
+import { CheckTicketComponent } from './check-ticket/check-ticket.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { AgbComponent } from './agb/agb.component';
     ProblemmeldenComponent,
     ImpressumComponent,
     AgbComponent,
+    CheckTicketComponent,
   ],
   imports: [
     BrowserModule,

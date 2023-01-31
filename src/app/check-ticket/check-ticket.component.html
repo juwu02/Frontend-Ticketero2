@@ -1,0 +1,26 @@
+<html>
+<head>
+  <title>Check Ticket</title>
+</head>
+<body>
+<section class="registrieren">
+  <div class="teil1"> </div>
+  <div class="teil2">
+    <h1>Ticket kontrollieren</h1>
+    <form class="example-container" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Ticketnummer eingeben</mat-label>
+      <input matInput formControlName="search">
+    </mat-form-field>
+    <button mat-raised-button color="primary"  type="submit">Ticket suchen</button>
+    </form>
+  </div>
+  <div class="teil3"> </div>
+</section>
+<section class="hinweis">
+  <div class="teil1"></div>
+  <div class="teil3"></div>
+</section>
+</body>
+</html>
+
