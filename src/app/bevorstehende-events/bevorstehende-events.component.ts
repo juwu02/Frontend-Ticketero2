@@ -60,7 +60,8 @@ export class BevorstehendeEventsComponent {
 
   }
 
-  qrInfo = JSON.stringify(this.skipaesse)
+  //qrInfo = JSON.stringify(this.skipaesse)
+  qrInfo ='http://localhost:4200/checkTicket';
 //für Backend
 
   /*save(): void{
