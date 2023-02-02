@@ -4,8 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { BevorstehendeEventsComponent } from "./bevorstehende-events/bevorstehende-events.component";
 import { AccountverwaltungComponent } from './accountverwaltung/accountverwaltung.component';
 import { AnmeldemaskeComponent } from './anmeldemaske/anmeldemaske.component';
-import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
 import { RegistrierungsmaskeComponent } from './registrierungsmaske/registrierungsmaske.component';
 import { KontaktformularComponent } from './kontaktformular/kontaktformular.component';
 import { SkipasskaufenComponent } from './skipasskaufen/skipasskaufen.component';
@@ -16,6 +14,7 @@ import {ImpressumComponent} from "./impressum/impressum.component";
 import {AuthGuard} from "./auth.guard";
 import {AgbComponent } from "./agb/agb.component";
 import { CheckTicketComponent } from './check-ticket/check-ticket.component';
+import { ShowTicketComponent } from "./show-ticket/show-ticket.component";
 
 const routes: Routes = [
   {path: 'tickets',
@@ -45,7 +44,8 @@ const routes: Routes = [
   },
   {path:'kontaktdaten',
       component: KontaktdatenComponent,
-    title: 'Kontaktdaten'
+    title: 'Kontaktdaten',
+    canActivate:[AuthGuard]
   },
   {path:'anmelden',
     component: AnmeldemaskeComponent
@@ -62,7 +62,13 @@ const routes: Routes = [
   {path: 'checkTicket',
     component: CheckTicketComponent,
     title: 'checkticket',
+    canActivate:[AuthGuard]
     },
+  {path: 'showTicket',
+    component: ShowTicketComponent,
+    title: 'showticket',
+  canActivate:[AuthGuard]
+  },
   { path: '',   redirectTo: '/homepage', pathMatch: 'full' },
 ];
 

@@ -3,6 +3,7 @@ import { Skipass } from "./skipass";
 import {BehaviorSubject, map, Observable, of, tap} from "rxjs";
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {User} from "./user";
+import {Router} from "@angular/router";
 
 
 @Injectable({
@@ -20,7 +21,7 @@ export class SkipassService {
     .set('content-type', 'application/json')
     .set('Access-Control-Allow-Origin', '*');
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private router: Router) {
     this.skipassSubject = new BehaviorSubject<Skipass>(JSON.parse(localStorage.getItem('skipass')));
     this.skipass = this.skipassSubject.asObservable();
   }
@@ -32,6 +33,7 @@ export class SkipassService {
         this.skipassSubject.next(skipass);
         return skipass;
       }));
+    this.router.navigate(['showTicket']);
   }
 
   /*getSkipass(id): Observable<Skipass>{

@@ -39,7 +39,6 @@ export class LoginService {
     this.router.navigate(['accountverwaltung']);
   }
 
-  //brauchen wir das?
   logout() {
     localStorage.removeItem('user');
     this.userSubject.next(null);

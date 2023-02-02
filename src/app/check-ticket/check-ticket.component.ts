@@ -3,6 +3,7 @@ import {SkipassService} from "../skipass.service";
 import {Skipass} from "../skipass";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {first, Observable, Subject} from "rxjs";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-check-ticket',
@@ -16,7 +17,7 @@ export class CheckTicketComponent {
   submitted = false;
   skipass: Skipass;
 
-  constructor(private skipassService: SkipassService, private formBuilder: FormBuilder) {
+  constructor(private skipassService: SkipassService, private formBuilder: FormBuilder, private router: Router) {
   }
 
   ngOnInit() {
@@ -40,6 +41,9 @@ export class CheckTicketComponent {
     this.skipassService.getSkipaesse(this.f['search'].value)
       .pipe(first())
       .subscribe({
+        next: () => {
+          this.router.navigate(['showTicket']);
+        },
         error: error => {
           this.loading = false;
         }

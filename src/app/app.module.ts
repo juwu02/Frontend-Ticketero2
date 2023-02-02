@@ -37,6 +37,7 @@ import { MatNativeDateModule } from  '@angular/material/core';
 import { ImpressumComponent } from './impressum/impressum.component';
 import { AgbComponent } from './agb/agb.component';
 import { CheckTicketComponent } from './check-ticket/check-ticket.component';
+import { ShowTicketComponent } from './show-ticket/show-ticket.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { CheckTicketComponent } from './check-ticket/check-ticket.component';
     ImpressumComponent,
     AgbComponent,
     CheckTicketComponent,
+    ShowTicketComponent,
   ],
   imports: [
     BrowserModule,

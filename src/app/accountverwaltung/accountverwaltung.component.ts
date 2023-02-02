@@ -15,4 +15,8 @@ export class AccountverwaltungComponent {
     this.loginService.user.subscribe(x => this.user = x);
   }
 
+  logout(){
+    this.loginService.logout();
+  }
+
 }
