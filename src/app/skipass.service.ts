@@ -3,6 +3,7 @@ import { Skipass } from "./skipass";
 import {BehaviorSubject, map, Observable, of, tap} from "rxjs";
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {User} from "./user";
+import {LoginService} from "./login.service";
 
 
 @Injectable({
@@ -20,6 +21,7 @@ export class SkipassService {
     .set('content-type', 'application/json')
     .set('Access-Control-Allow-Origin', '*');
 
+  constructor(private httpClient: HttpClient,private loginService: LoginService) {
   constructor(private httpClient: HttpClient) {
     this.skipassSubject = new BehaviorSubject<Skipass>(JSON.parse(localStorage.getItem('skipass')));
     this.skipass = this.skipassSubject.asObservable();
@@ -34,6 +36,15 @@ export class SkipassService {
       }));
   }
 
+getAllTickets(): Observable<Skipass[]>{
+    const user = this.loginService.userValue;
+    console.log(user.email)
+    const skipaesse = this.httpClient.post<Skipass[]>('https://apptest-pd35.onrender.com/mytickets/', {"userid":24});
+    return skipaesse;
+  }
+
+
+  getSkipass(id): Observable<Skipass>{
   /*getSkipass(id): Observable<Skipass>{
     const skipass = this.httpClient.get<Skipass>(this.API_URL + 'checkTicket' + id.toString(), {'headers': this.headers});
     return skipass;

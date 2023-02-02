@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import {Skipass} from "../skipass";
+import {User} from "../user";
 import { SkipassService } from "../skipass.service";
+import { LoginService } from "../login.service";
 import {Observable} from "rxjs";
 
 @Component({
@@ -20,21 +22,23 @@ import {Observable} from "rxjs";
 
 export class BevorstehendeEventsComponent {
   //Array abrufen für get
-  //skipaesse: Skipass[] = [];
+  skipaesse: Skipass[] = [];
+  user: User;
   //selectedSkipass?: Skipass;
   //löschen wenn Backend da is
   //skipaesse: Skipass;
-  skipaesse = [
-    {id: 1, skigebiet:'Oberwallis', datum:'26.12.2022', bestellnummer:'#12345', vorname:'Max', nachname:'Mustermann', tarif:'ganze Saison'},
-    {id: 2, skigebiet:'anderes Skigebiet', datum:'26.12.2022', bestellnummer:'#12345', vorname:'Maxim', nachname:'Mustermann', tarif:'ganze Saison'},
-    {id: 2, skigebiet:'anderes Skigebiet', datum:'26.12.2022', bestellnummer:'#12345', vorname:'Maxim', nachname:'Mustermann', tarif:'ganze Saison'},
-    {id: 2, skigebiet:'anderes Skigebiet', datum:'26.12.2022', bestellnummer:'#12345', vorname:'Maxim', nachname:'Mustermann', tarif:'ganze Saison'}
-  ]
+  //skipaesse = [
+  //  {id: 1, skigebiet:'Oberwallis', datum:'26.12.2022', bestellnummer:'#12345', vorname:'Max', nachname:'Mustermann', tarif:'ganze Saison'},
+   // {id: 2, skigebiet:'anderes Skigebiet', datum:'26.12.2022', bestellnummer:'#12345', vorname:'Maxim', nachname:'Mustermann', tarif:'ganze Saison'},
+  //  {id: 2, skigebiet:'anderes Skigebiet', datum:'26.12.2022', bestellnummer:'#12345', vorname:'Maxim', nachname:'Mustermann', tarif:'ganze Saison'},
+  //  {id: 2, skigebiet:'anderes Skigebiet', datum:'26.12.2022', bestellnummer:'#12345', vorname:'Maxim', nachname:'Mustermann', tarif:'ganze Saison'}
+  //]
   //für Backend
   //skipass? : Skipass;
   //skipass: ({ vorname: 'Max'; nachname: 'Mustermann'; id: 1 } | { vorname: 'Maxim'; nachname: 'Mustermann'; id: 2 } | { vorname: 'Maxima'; nachname: 'Mustermann'; id: 3 } | { vorname: 'Maxi'; nachname: 'Mustermann'; id: 4 })
 
-  constructor(private skipassService: SkipassService) {
+  constructor(private skipassService: SkipassService, private loginService: LoginService) {
+  this.loginService.user.subscribe(x => this.user = x);
   }
 
   //für Backend
@@ -43,13 +47,15 @@ export class BevorstehendeEventsComponent {
   }*/
 
 //für Backend
- /* getSkipaesse(): void{
-    this.skipassService.getSkipaesse()
-      .subscribe(x => {
-        console.log(x)
-        this.skipaesse = x
-      });
-  }*/
+ ngOnInit(): void {
+     this.getSkipaesse();
+   }
+   getSkipaesse(): void{
+       this.skipassService.getAllTickets()
+         .subscribe(x => {
+           this.skipaesse = x
+         });
+         }
 
   show=1;
   skigebiet="Oberwallis";
