@@ -7,7 +7,6 @@
   <div class="teil1"> </div>
   <div class="teil2">
     <h1>Deine Skipässe</h1>
-    <h1>{{user.user_id}}</h1>
 
     <ng-template [ngIf]="show==0">
       <p>Noch kein Skipass vorhanden?</p>
@@ -27,9 +26,7 @@
           </mat-card-title-group>
         </mat-card-header>
         <mat-card-content [@bodyExpansion]="state" class="expandable-content">
-          <!--<img mat-card-sm-image src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.n2saXL7xX6_GmI3hgYyl5gHaHa%26pid%3DApi&f=1&ipt=5f39ad5eb42c2f1df3dae875986f83703d5f701db51713b5b54c26f805d3b6c6&ipo=images">-->
     <qr-code [value]="qrInfo"></qr-code>
-     <!--<qr-code [value]="qrInfo" size="100"></qr-code>-->
    </mat-card-content>
    <mat-card-actions>
      <button mat-raised-button color="primary" (click)="toggle()">QR-Code anzeigen</button>
