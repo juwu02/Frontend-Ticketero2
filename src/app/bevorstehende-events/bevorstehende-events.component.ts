@@ -19,14 +19,25 @@ import {Observable} from "rxjs";
 })
 
 export class BevorstehendeEventsComponent {
-  skipaesse = [
+  skipaesse: Skipass[] = [];
+  /*skipaesse = [
     {id: 1, skigebiet:'Oberwallis', datum:'26.12.2022', bestellnummer:'#12345', vorname:'Max', nachname:'Mustermann', tarif:'ganze Saison'},
     {id: 2, skigebiet:'anderes Skigebiet', datum:'26.12.2022', bestellnummer:'#12345', vorname:'Maxim', nachname:'Mustermann', tarif:'ganze Saison'},
     {id: 2, skigebiet:'anderes Skigebiet', datum:'26.12.2022', bestellnummer:'#12345', vorname:'Maxim', nachname:'Mustermann', tarif:'ganze Saison'},
     {id: 2, skigebiet:'anderes Skigebiet', datum:'26.12.2022', bestellnummer:'#12345', vorname:'Maxim', nachname:'Mustermann', tarif:'ganze Saison'}
-  ]
+  ]*/
 
   constructor(private skipassService: SkipassService) {
+  }
+
+  ngOnInit(): void {
+    this.getSkipaesse();
+  }
+  getSkipaesse(): void{
+    this.skipassService.getAllTickets()
+      .subscribe(x => {
+        this.skipaesse = x
+      });
   }
 
   show=1;
