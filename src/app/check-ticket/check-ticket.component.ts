@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {SkipassService} from "../skipass.service";
 import {Skipass} from "../skipass";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {first, Observable, Subject} from "rxjs";
 
 @Component({
   selector: 'app-check-ticket',
@@ -25,7 +26,7 @@ export class CheckTicketComponent {
   }
 
   get f() {
-    return this.form.controls
+    return this.form.controls;
   }
 
   onSubmit() {
@@ -36,7 +37,13 @@ export class CheckTicketComponent {
     }
 
     this.loading = true;
-    this.skipassService.getSkipass(this.f['search']);
+    this.skipassService.getSkipaesse(this.f['search'].value)
+      .pipe(first())
+      .subscribe({
+        error: error => {
+          this.loading = false;
+        }
+      });
   }
 
 }
