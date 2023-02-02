@@ -1,5 +1,7 @@
 export interface Skipass {
   id: string,
+  name: string,
+  amount: string
 }
 
 /*

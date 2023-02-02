@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Skipass } from "./skipass";
-import {BehaviorSubject, Observable, of} from "rxjs";
+import {BehaviorSubject, Observable, of, tap} from "rxjs";
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {User} from "./user";
 
@@ -9,6 +9,8 @@ import {User} from "./user";
   providedIn: 'root'
 })
 export class SkipassService {
+
+  public skipass: Observable<Skipass>;
 
   API_URL = "https://apptest-pd35.onrender.com/";
 
@@ -19,10 +21,11 @@ export class SkipassService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getSkipaesse(): Observable<Skipass[]>{
-    const skipaesse = this.httpClient.get<Skipass[]>(this.API_URL + 'checkTicket', {'headers': this.headers});
-    //const skipaesse = of(SKIPAESSE);
-  return skipaesse;
+  getSkipaesse(): Observable<Skipass>{
+    return this.httpClient.get<Skipass>(this.API_URL + 'allTickets', {'headers': this.headers})
+      /*.pipe(
+        tap(_ => this.log('fuktioniert'));
+      );*/
   }
 
   getSkipass(id): Observable<Skipass>{

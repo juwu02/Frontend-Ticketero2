@@ -23,6 +23,7 @@ export class BevorstehendeEventsComponent {
   //skipaesse: Skipass[] = [];
   //selectedSkipass?: Skipass;
   //löschen wenn Backend da is
+  //skipaesse: Skipass;
   skipaesse = [
     {id: 1, skigebiet:'Oberwallis', datum:'26.12.2022', bestellnummer:'#12345', vorname:'Max', nachname:'Mustermann', tarif:'ganze Saison'},
     {id: 2, skigebiet:'anderes Skigebiet', datum:'26.12.2022', bestellnummer:'#12345', vorname:'Maxim', nachname:'Mustermann', tarif:'ganze Saison'},
