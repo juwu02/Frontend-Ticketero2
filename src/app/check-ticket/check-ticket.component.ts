@@ -4,6 +4,7 @@ import {Skipass} from "../skipass";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {first, Observable, Subject} from "rxjs";
 import {Router} from "@angular/router";
+import { Pipe, PipeTransform} from "@angular/core";
 
 @Component({
   selector: 'app-check-ticket',
@@ -22,7 +23,8 @@ export class CheckTicketComponent {
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      search: ['', Validators.required]
+      search: ['', Validators.required],
+      place: ['', Validators.required]
     });
   }
 
@@ -38,7 +40,7 @@ export class CheckTicketComponent {
     }
 
     this.loading = true;
-    this.skipassService.getSkipaesse(this.f['search'].value)
+    this.skipassService.getSkipaesse(this.f['search'].value, this.f['place'].value)
       .pipe(first())
       .subscribe({
         next: () => {

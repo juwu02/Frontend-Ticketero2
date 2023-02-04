@@ -26,8 +26,8 @@ export class SkipassService {
     this.skipass = this.skipassSubject.asObservable();
   }
 
-  getSkipaesse(serialno){
-    return this.httpClient.post<Skipass>(this.API_URL + 'proveTicket', {serialno}, {'headers': this.headers})
+  getSkipaesse(serialno, place){
+    return this.httpClient.post<Skipass>(this.API_URL + 'proveTicket', {serialno, place}, {'headers': this.headers})
       .pipe(map(skipass => {
         localStorage.setItem('skipass', JSON.stringify(skipass));
         this.skipassSubject.next(skipass);

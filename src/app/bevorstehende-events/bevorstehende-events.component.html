@@ -14,14 +14,14 @@
 
       <button mat-raised-button color="primary">Skipass kaufen</button></ng-template>
 
-    <ng-template [ngIf]="show>=1" *ngFor="let skipass of skipaesse">
+    <ng-template [ngIf]="show>=1" *ngFor="let skipass of skipaesse | keyvalue">
 
       <mat-card class="skipass">
         <mat-card-header>
           <mat-card-title-group>
-            <mat-card-subtitle>{{skipass.valid_from}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{skipass.userid}}</mat-card-subtitle>
+            <mat-card-subtitle>{{skipass.valid_from}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{skipass.user_id}}</mat-card-subtitle>
             <mat-card-title>Skipass - {{skipass.firstname}} {{skipass.lastname}}</mat-card-title>
-            <mat-card-subtitle>Skigebiet - {{skipass.uses_left}}</mat-card-subtitle>
+            <mat-card-subtitle>Skigebiet Zermatt - {{skipass.uses_left}} </mat-card-subtitle>
             <img mat-card-sm-image src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ff.hikr.org%2Ffiles%2F1698978.jpg&f=1&nofb=1&ipt=424ee23c95810b6ee9bf69a91664b55dedf2a2be0577c498f11d0d0a46d8f48f&ipo=images" >
           </mat-card-title-group>
         </mat-card-header>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Pipe} from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import {Skipass} from "../skipass";
 import { SkipassService } from "../skipass.service";
