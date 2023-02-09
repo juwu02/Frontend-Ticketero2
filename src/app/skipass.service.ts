@@ -37,18 +37,8 @@ export class SkipassService {
       }));
   }
 
-  getTickets1(): Observable<Skipass[]>{
-    const skipaesse = this.httpClient.get<Skipass[]>('http://127.0.0.1:5000/skipaesse');
-    return skipaesse;
-  }
-
-  getTickets(userid): Observable<any>{
-    return this.httpClient.post<any>(this.API_URL + 'mytickets', {userid}, {'headers': this.headers})
-      .pipe(map(skipass => {
-        localStorage.setItem('skipass', JSON.stringify(skipass));
-        this.skipassSubject.next(skipass);
-        return skipass;
-      }));
+  getTickets2(userid):Observable<Skipass[]>{
+    return this.httpClient.post<Skipass[]>(this.API_URL + 'mytickets', {userid}, {'headers': this.headers});
   }
 
 }

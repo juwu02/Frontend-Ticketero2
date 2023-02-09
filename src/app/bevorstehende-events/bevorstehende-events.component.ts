@@ -33,21 +33,9 @@ export class BevorstehendeEventsComponent {
   }
 
   getSkipaesse(){
-    this.skipassService.getTickets1()
+    this.skipassService.getTickets2(this.user.id)
       .subscribe(x => this.skipaesse = x)
   }
-
-  /*ngOnInit() {
-
-     this.getSkipaesse();
-   }
-
-   getSkipaesse(): void{
-     this.skipassService.getTickets(this.user.id)
-       .subscribe(x => {
-         this.skipaesse = x
-       });
-   }*/
 
   show=1;
   skigebiet="Oberwallis";
