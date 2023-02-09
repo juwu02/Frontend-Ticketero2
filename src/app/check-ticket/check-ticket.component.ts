@@ -11,6 +11,7 @@ import { Pipe, PipeTransform} from "@angular/core";
   templateUrl: './check-ticket.component.html',
   styleUrls: ['./check-ticket.component.scss']
 })
+
 export class CheckTicketComponent {
 
   form: FormGroup

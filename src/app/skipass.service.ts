@@ -13,7 +13,9 @@ export class SkipassService {
 
   private skipassSubject: BehaviorSubject<Skipass>;
   public skipass: Observable<Skipass>;
+
   user: User;
+  skipaesse: Skipass[] = [];
 
   API_URL = "https://apptest-pd35.onrender.com/";
 
@@ -21,7 +23,7 @@ export class SkipassService {
     .set('content-type', 'application/json')
     .set('Access-Control-Allow-Origin', '*');
 
-  constructor(private httpClient: HttpClient, private loginService: LoginService) {
+  constructor(private httpClient: HttpClient) {
     this.skipassSubject = new BehaviorSubject<Skipass>(JSON.parse(localStorage.getItem('skipass')));
     this.skipass = this.skipassSubject.asObservable();
   }
@@ -33,6 +35,11 @@ export class SkipassService {
         this.skipassSubject.next(skipass);
         return skipass;
       }));
+  }
+
+  getTickets1(): Observable<Skipass[]>{
+    const skipaesse = this.httpClient.get<Skipass[]>('http://127.0.0.1:5000/skipaesse');
+    return skipaesse;
   }
 
   getTickets(userid): Observable<any>{

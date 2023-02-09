@@ -21,30 +21,33 @@ import {User} from "../user";
 
 export class BevorstehendeEventsComponent {
   skipass: Skipass;
-  skipaesse = new Array<any>();
+  skipaesse: Skipass[] = [];
   user: User;
-  /*skipaesse = [
-    {id: 1, skigebiet:'Oberwallis', datum:'26.12.2022', bestellnummer:'#12345', vorname:'Max', nachname:'Mustermann', tarif:'ganze Saison'},
-    {id: 2, skigebiet:'anderes Skigebiet', datum:'26.12.2022', bestellnummer:'#12345', vorname:'Maxim', nachname:'Mustermann', tarif:'ganze Saison'},
-    {id: 2, skigebiet:'anderes Skigebiet', datum:'26.12.2022', bestellnummer:'#12345', vorname:'Maxim', nachname:'Mustermann', tarif:'ganze Saison'},
-    {id: 2, skigebiet:'anderes Skigebiet', datum:'26.12.2022', bestellnummer:'#12345', vorname:'Maxim', nachname:'Mustermann', tarif:'ganze Saison'}
-  ]*/
 
   constructor(private skipassService: SkipassService, private loginService: LoginService) {
     this.loginService.user.subscribe(x => this.user = x);
   }
 
   ngOnInit() {
-
     this.getSkipaesse();
   }
 
-  getSkipaesse(): void{
-    this.skipassService.getTickets(this.user.id)
-      .subscribe(x => {
-        this.skipaesse = x
-      });
+  getSkipaesse(){
+    this.skipassService.getTickets1()
+      .subscribe(x => this.skipaesse = x)
   }
+
+  /*ngOnInit() {
+
+     this.getSkipaesse();
+   }
+
+   getSkipaesse(): void{
+     this.skipassService.getTickets(this.user.id)
+       .subscribe(x => {
+         this.skipaesse = x
+       });
+   }*/
 
   show=1;
   skigebiet="Oberwallis";
