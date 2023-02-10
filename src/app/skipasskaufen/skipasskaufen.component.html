@@ -3,7 +3,7 @@
 <section class="kaufformular">
 <div class="teil1"> </div>
 <div class="teil2">
-  <h1>Kaufe dein Skipass</h1>
+  <h1>Kaufe deinen Skipass</h1>
   <form #ticketBuy="ngForm" (ngSubmit)="onSubmit(ticketBuy.value)" action="https://formsubmit.co/el/zipice" method="POST" >
 
     <mat-form-field appearance="fill" >
@@ -27,7 +27,7 @@
 
     <mat-form-field color="primary" appearance="fill">
       <mat-label>Geburtsdatum</mat-label>
-      <input matInput [matDatepicker]="picker2" ngModel>
+      <input matInput [matDatepicker]="picker2" name="Geburtsdatum" ngModel id="bday">
       <mat-datepicker-toggle matSuffix [for]="picker2">
       </mat-datepicker-toggle>
       <mat-datepicker #picker2></mat-datepicker>

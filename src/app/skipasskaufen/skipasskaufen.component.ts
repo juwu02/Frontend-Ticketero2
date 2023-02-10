@@ -15,7 +15,7 @@ export class SkipasskaufenComponent{
   constructor(private http:HttpClient){}
 
     onSubmit(data){
-      this.http.post('http://localhost:4200/skipasskaufen', data)
+      this.http.post('https://apptest-pd35.onrender.com/buy', data)
       .subscribe((result)=>{
         console.warn("result", result)
       })
@@ -23,11 +23,14 @@ export class SkipasskaufenComponent{
   }
 
   foods: Food[] = [
-      {value: '1200', viewValue: 'Erwachsene 1200€'},
-      {value: '1000', viewValue: 'Jugendliche 1000€'},
-      {value: '600', viewValue: 'Kinder 600€'},
-      {value: '0', viewValue: 'Babys kostenlos'},
-      {value: '3000', viewValue: 'Familienpass 3000€'}
+      {value: '0', viewValue: 'Erwachsene 1200€'},
+      {value: '1', viewValue: 'Jugendliche 1000€'},
+      {value: '2', viewValue: 'Kinder 600€'},
+      {value: '3', viewValue: 'Babys kostenlos'},
+      {value: '4', viewValue: 'Familienpass 3000€'}
     ];
+
+
 }
+
 
