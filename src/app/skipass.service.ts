@@ -1,11 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Skipass } from "./skipass";
-import {BehaviorSubject, map, Observable, of, tap} from "rxjs";
+import {BehaviorSubject, map, Observable} from "rxjs";
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {User} from "./user";
-import {LoginService} from "./login.service";
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -30,6 +27,15 @@ export class SkipassService {
 
   getSkipaesse(serialno, place){
     return this.httpClient.post<Skipass>(this.API_URL + 'proveTicket', {serialno, place}, {'headers': this.headers})
+      .pipe(map(skipass => {
+        localStorage.setItem('skipass', JSON.stringify(skipass));
+        this.skipassSubject.next(skipass);
+        return skipass;
+      }));
+  }
+
+  getSkipaesse2(serialno, place){
+    return this.httpClient.post<Skipass>(this.API_URL + 'proveTicket' + serialno.toString(), {serialno, place}, {'headers': this.headers})
       .pipe(map(skipass => {
         localStorage.setItem('skipass', JSON.stringify(skipass));
         this.skipassSubject.next(skipass);

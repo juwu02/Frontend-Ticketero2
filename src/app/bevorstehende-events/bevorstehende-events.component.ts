@@ -20,6 +20,14 @@ import {User} from "../user";
 })
 
 export class BevorstehendeEventsComponent {
+
+  show=1;
+  skigebiet="Oberwallis";
+  state='collapsed';
+  panelOpenState: boolean = false;
+
+  qrInfo ='http://localhost:4200/checkTicket';
+
   skipass: Skipass;
   skipaesse: Skipass[] = [];
   user: User;
@@ -37,15 +45,9 @@ export class BevorstehendeEventsComponent {
       .subscribe(x => this.skipaesse = x)
   }
 
-  show=1;
-  skigebiet="Oberwallis";
-  zusatzText="Das ist ein Test Skipass";
-  state='collapsed';
-  panelOpenState: boolean = false;
   toggle(): void {
     this.state = this.state === 'collapsed' ? 'expanded' : 'collapsed';
 
   }
-  qrInfo ='http://localhost:4200/checkTicket';
 
 }

@@ -38,6 +38,7 @@ import { ImpressumComponent } from './impressum/impressum.component';
 import { AgbComponent } from './agb/agb.component';
 import { CheckTicketComponent } from './check-ticket/check-ticket.component';
 import { ShowTicketComponent } from './show-ticket/show-ticket.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -78,6 +79,7 @@ import { ShowTicketComponent } from './show-ticket/show-ticket.component';
     MatSelectModule,
     MatCheckboxModule,
     MatListModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,7 +4,8 @@ import {Skipass} from "../skipass";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {first, Observable, Subject} from "rxjs";
 import {Router} from "@angular/router";
-import { Pipe, PipeTransform} from "@angular/core";
+import {LoginService} from "../login.service";
+import {User} from "../user";
 
 @Component({
   selector: 'app-check-ticket',
@@ -18,8 +19,14 @@ export class CheckTicketComponent {
   loading = false;
   submitted = false;
   skipass: Skipass;
+  skipaesse: Skipass[] = [];
+  user: User;
 
-  constructor(private skipassService: SkipassService, private formBuilder: FormBuilder, private router: Router) {
+  serialno: any;
+
+  constructor(private skipassService: SkipassService, private loginService: LoginService, private formBuilder: FormBuilder, private router: Router) {
+    this.skipassService.skipass.subscribe(x => this.skipass = x);
+    this.loginService.user.subscribe(x => this.user = x);
   }
 
   ngOnInit() {
@@ -27,10 +34,16 @@ export class CheckTicketComponent {
       search: ['', Validators.required],
       place: ['', Validators.required]
     });
+    this.getSkipaesse();
   }
 
   get f() {
     return this.form.controls;
+  }
+
+  getSkipaesse(){
+    this.skipassService.getTickets2(this.user.id)
+      .subscribe(x => this.skipaesse = x)
   }
 
   onSubmit() {

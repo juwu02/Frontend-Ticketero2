@@ -8,10 +8,19 @@
   <div class="teil2">
     <div class="parent">
     <h1>Ticket kontrollieren</h1>
+      <label id="example-radio-group-label">Zu kontrollierendes Ticket auswählen</label>
+      <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        [(ngModel)]="serialno">
+        <mat-radio-button class="example-radio-button" *ngFor="let skipass of skipaesse" [value]="skipass.serial_no">
+          {{skipass.firstname}} {{skipass.lastname}}
+        </mat-radio-button>
+      </mat-radio-group>
     <form class="example-container" [formGroup]="form" (ngSubmit)="onSubmit()">
     <mat-form-field appearance="fill">
       <mat-label>Seriennummer eingeben</mat-label>
-      <input matInput formControlName="search">
+      <input matInput formControlName="search" [(ngModel)]="serialno">
     </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Ort eingeben</mat-label>
