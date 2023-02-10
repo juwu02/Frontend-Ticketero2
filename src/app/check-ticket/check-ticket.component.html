@@ -22,9 +22,13 @@
       <mat-label>Seriennummer eingeben</mat-label>
       <input matInput formControlName="search" [(ngModel)]="serialno">
     </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Ort eingeben</mat-label>
-        <input matInput formControlName="place">
+      <mat-form-field>
+        <mat-label>Wähle das Skigebiet aus:</mat-label>
+        <mat-select name="Tarif" formControlName="place" >
+          <mat-option *ngFor="let skigebiet of skigebiete" [value]="skigebiet.value">
+            {{skigebiet.viewValue}}
+          </mat-option>
+        </mat-select>
       </mat-form-field>
     <button mat-raised-button color="primary"  type="submit">Ticket suchen</button>
     </form>

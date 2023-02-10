@@ -60,7 +60,7 @@ const routes: Routes = [
   {path: 'agb',
     component: AgbComponent,
     title: 'AGB'},
-  {path: 'checkTicket',
+  {path: 'checkTicket/:serialno',
     component: CheckTicketComponent,
     title: 'checkticket',
     canActivate:[AuthGuard],

@@ -20,7 +20,7 @@
             </mat-card-title-group>
           </mat-card-header>
           <mat-card-content [@bodyExpansion]="state" class="expandable-content">
-            <qr-code [value]="qrInfo"></qr-code>
+            <qr-code [value]="qrInfo+qrData(skipass.serial_no)"></qr-code>
           </mat-card-content>
           <mat-card-actions>
             <button mat-raised-button color="primary" (click)="toggle()">QR-Code anzeigen</button>

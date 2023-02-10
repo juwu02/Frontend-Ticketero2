@@ -26,17 +26,22 @@ export class BevorstehendeEventsComponent {
   state='collapsed';
   panelOpenState: boolean = false;
 
-  qrInfo ='http://localhost:4200/checkTicket';
+
+  values: any;
+  qrInfo ='http://localhost:4200/checkTicket/';
+  qrData(val: any) {
+    return this.values = val;
+  }
 
   skipass: Skipass;
   skipaesse: Skipass[] = [];
   user: User;
-  show=0;
 
   constructor(private skipassService: SkipassService, private loginService: LoginService) {
     this.loginService.user.subscribe(x => this.user = x);
     this.skipassService.skipass.subscribe(x => this.skipass = x);
   }
+
 
   ngOnInit() {
     this.getSkipaesse();
