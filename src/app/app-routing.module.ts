@@ -15,6 +15,7 @@ import {AuthGuard} from "./auth.guard";
 import {AgbComponent } from "./agb/agb.component";
 import { CheckTicketComponent } from './check-ticket/check-ticket.component';
 import { ShowTicketComponent } from "./show-ticket/show-ticket.component";
+import { BestaetigungComponent } from './bestaetigung/bestaetigung.component';
 
 const routes: Routes = [
   {path: 'tickets',
@@ -37,6 +38,11 @@ const routes: Routes = [
   {path: 'skipasskaufen',
        component: SkipasskaufenComponent,
     title: 'Skipass kaufen',
+    canActivate:[AuthGuard]
+  },
+  {path: 'bestaetigung',
+       component: BestaetigungComponent,
+    title: 'Ticket gekauft',
     canActivate:[AuthGuard]
   },
   {path: 'homepage',

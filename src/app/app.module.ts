@@ -39,6 +39,7 @@ import { AgbComponent } from './agb/agb.component';
 import { CheckTicketComponent } from './check-ticket/check-ticket.component';
 import { ShowTicketComponent } from './show-ticket/show-ticket.component';
 import {MatRadioModule} from '@angular/material/radio';
+import { BestaetigungComponent } from './bestaetigung/bestaetigung.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import {MatRadioModule} from '@angular/material/radio';
     AgbComponent,
     CheckTicketComponent,
     ShowTicketComponent,
+    BestaetigungComponent,
   ],
   imports: [
     BrowserModule,
