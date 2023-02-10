@@ -8,17 +8,19 @@
 
     <mat-form-field appearance="fill" >
     <mat-label>Vorname:</mat-label>
-    <input matInput type="text" name="vorname" placeholder="Vorname" ngModel required>
+    <input matInput type="text" name="Vorname" placeholder="Vorname" ngModel required #Vorname="ngModel">
+      <span *ngIf="Vorname.invalid && Vorname.touched" class="error"> Bitte Vorname eingeben </span>
     </mat-form-field>
 
     <mat-form-field appearance="fill" id="runter">
     <mat-label>Nachname:</mat-label>
-    <input matInput type="text" name="Nachname" placeholder="Nachname" ngModel required>
+    <input matInput type="text" name="Nachname" placeholder="Nachname" ngModel required #Nachname="ngModel">
+      <span *ngIf="Nachname.invalid && Nachname.touched" class="error"> Bitte Nachname eingeben </span>
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Wähle ein Tarif aus:</mat-label>
-      <mat-select name="Tarif" ngModel >
+      <mat-select name="Tarif" ngModel required #Tarif="ngModel" >
         <mat-option *ngFor="let food of foods" [value]="food.value">
           {{food.viewValue}}
         </mat-option>
@@ -27,7 +29,7 @@
 
     <mat-form-field color="primary" appearance="fill">
       <mat-label>Geburtsdatum</mat-label>
-      <input matInput [matDatepicker]="picker2" name="Geburtsdatum" ngModel id="bday">
+      <input matInput [matDatepicker]="picker2" name="Geburtsdatum" ngModel id="bday" required #Geburtsdatum="ngModel">
       <mat-datepicker-toggle matSuffix [for]="picker2">
       </mat-datepicker-toggle>
       <mat-datepicker #picker2></mat-datepicker>
@@ -36,7 +38,8 @@
 
     <mat-form-field appearance="fill" id="runter">
     <mat-label>E-Mail-Adresse:</mat-label>
-    <input matInput type="email" name="E-Mail-Adresse" placeholder="Deine E-Mail-Adresse" ngModel required>
+    <input matInput type="email" name="Email" email placeholder="Deine E-Mail-Adresse" ngModel required #Email="ngModel">
+      <span *ngIf="Email.invalid && Email.touched" class="error"> Bitte valide E-Mail-Adresse eingeben </span>
     </mat-form-field>
 
     <mat-form-field appearance="fill" id="runter">
@@ -44,7 +47,7 @@
     <input matInput type="tel" name="Handynummer" placeholder="Handynummer" ngModel >
     </mat-form-field>
       <p> </p>
-    <button type="submit" id="kaufen" mat-raised-button color="primary" >Kostenpflichtig kaufen</button>
+    <button [disabled]="ticketBuy.invalid" type="submit" id="kaufen" mat-raised-button color="primary" [routerLink]="['/bestaetigung']">Kostenpflichtig kaufen</button>
   </form>
 </div>
 <div class="teil3"> </div>
