@@ -48,7 +48,8 @@ const routes: Routes = [
     canActivate:[AuthGuard]
   },
   {path:'anmelden',
-    component: AnmeldemaskeComponent
+    component: AnmeldemaskeComponent,
+    title: 'Anmelden'
   },
   {path:'problemmelden',
       component: ProblemmeldenComponent

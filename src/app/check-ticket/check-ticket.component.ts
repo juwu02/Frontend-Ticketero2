@@ -59,9 +59,6 @@ export class CheckTicketComponent {
       .subscribe({
         next: () => {
           this.router.navigate(['showTicket']);
-        },
-        error: error => {
-          this.loading = false;
         }
       });
   }

@@ -7,7 +7,7 @@
   <div class="teil1"> </div>
   <div class="teil2">
     <h1>Registrieren bei Ticketero</h1>
-<form class="example-container" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <form class="example-container" [formGroup]="form" (ngSubmit)="onSubmit()">
   <mat-form-field>
     <mat-label>Vorname</mat-label>
     <input matInput placeholder="Vorname" type="text" formControlName="firstName" required>
@@ -18,8 +18,8 @@
   </mat-form-field><br>
   <mat-form-field appearance="fill">
   <mat-label>E-Mail Adresse</mat-label>
-  <input matInput placeholder="email@example.com" type="email" formControlName="email1" required>
-  <mat-error *ngIf="email1.invalid">{{getErrorMessageMail()}}</mat-error>
+  <input matInput placeholder="email@example.com" type="text" formControlName="email" required>
+  <mat-error *ngIf="email.invalid">{{getErrorMessageMail()}}</mat-error>
   </mat-form-field><br>
   <mat-form-field appearance="fill">
     <mat-label>Passwort eingeben</mat-label>
@@ -44,7 +44,7 @@
   </mat-form-field>
   <mat-checkbox color="primary" formControlName="agb">Ich habe die <a [routerLink]="['/agb']"> AGB</a> gelesen und akzeptiert</mat-checkbox>
   <br><br>
-    <button mat-raised-button color="primary">Registrieren</button><br>
+    <button mat-raised-button color="primary" type="submit">Registrieren</button><br>
   </form>
   </div>
   <div class="teil3"> </div>

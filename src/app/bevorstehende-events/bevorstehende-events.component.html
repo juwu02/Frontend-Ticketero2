@@ -8,35 +8,35 @@
   <div class="teil2">
     <h1>Deine Skipässe</h1>
 
-    <ng-template [ngIf]="show==0">
-      <p>Noch kein Skipass vorhanden?</p>
-      <p>Bereits gekaufte Tickets werden hier automatisch angezeigt</p>
+    <ng-template [ngIf]="skipaesse" [ngIfElse]="elseBlock">
+        <mat-card class="skipass" *ngFor="let skipass of skipaesse">
+          <mat-card-header>
+            <mat-card-title-group>
+              <mat-card-subtitle>{{skipass.valid_from}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{skipass.ticket_id}}</mat-card-subtitle>
+              <mat-card-title>Skipass - {{skipass.firstname}} {{skipass.lastname}}</mat-card-title>
+              <mat-card-subtitle> Eintritt Skigebiet Zermatt - {{skipass.uses_left}} </mat-card-subtitle>
+              <mat-card-subtitle> Seriennummer: {{skipass.serial_no}} </mat-card-subtitle>
+              <img mat-card-sm-image src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ff.hikr.org%2Ffiles%2F1698978.jpg&f=1&nofb=1&ipt=424ee23c95810b6ee9bf69a91664b55dedf2a2be0577c498f11d0d0a46d8f48f&ipo=images" >
+            </mat-card-title-group>
+          </mat-card-header>
+          <mat-card-content [@bodyExpansion]="state" class="expandable-content">
+            <qr-code [value]="qrInfo"></qr-code>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="toggle()">QR-Code anzeigen</button>
+          </mat-card-actions>
+        </mat-card>
+    </ng-template>
 
-      <button mat-raised-button color="primary">Skipass kaufen</button></ng-template>
+      <ng-template #elseBlock>
+        <h2>Noch kein Skipass vorhanden?</h2>
+        <p>Bereits gekaufte Tickets werden hier automatisch angezeigt</p>
+        <button mat-raised-button color="primary" type="button" [routerLink]="['/skipasskaufen']"> Skipass kaufen </button>
+      </ng-template>
 
-    <ng-template [ngIf]="show>=1" *ngFor="let skipass of skipaesse">
 
-      <mat-card class="skipass">
-        <mat-card-header>
-          <mat-card-title-group>
-            <mat-card-subtitle>{{skipass.valid_from}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{skipass.ticket_id}}</mat-card-subtitle>
-            <mat-card-title>Skipass - {{skipass.firstname}} {{skipass.lastname}}</mat-card-title>
-            <mat-card-subtitle> Eintritt Skigebiet Zermatt - {{skipass.uses_left}} </mat-card-subtitle>
-            <mat-card-subtitle> Seriennummer: {{skipass.serial_no}} </mat-card-subtitle>
-            <img mat-card-sm-image src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ff.hikr.org%2Ffiles%2F1698978.jpg&f=1&nofb=1&ipt=424ee23c95810b6ee9bf69a91664b55dedf2a2be0577c498f11d0d0a46d8f48f&ipo=images" >
-          </mat-card-title-group>
-        </mat-card-header>
-        <mat-card-content [@bodyExpansion]="state" class="expandable-content">
-    <qr-code [value]="qrInfo"></qr-code>
-   </mat-card-content>
-   <mat-card-actions>
-     <button mat-raised-button color="primary" (click)="toggle()">QR-Code anzeigen</button>
-   </mat-card-actions>
- </mat-card>
-
-</ng-template>
   </div>
-  <div class="teil3"> </div>
+    <div class="teil3"> </div>
 </section>
 <section class="hinweis">
   <div class="teil1"></div>

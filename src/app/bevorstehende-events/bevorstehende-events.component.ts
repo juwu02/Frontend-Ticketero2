@@ -4,6 +4,7 @@ import {Skipass} from "../skipass";
 import { SkipassService } from "../skipass.service";
 import {LoginService} from "../login.service";
 import {User} from "../user";
+import {Subject} from "rxjs";
 
 @Component({
   selector: 'app-bevorstehende-events',
@@ -21,7 +22,6 @@ import {User} from "../user";
 
 export class BevorstehendeEventsComponent {
 
-  show=1;
   skigebiet="Oberwallis";
   state='collapsed';
   panelOpenState: boolean = false;
@@ -31,9 +31,11 @@ export class BevorstehendeEventsComponent {
   skipass: Skipass;
   skipaesse: Skipass[] = [];
   user: User;
+  show=0;
 
   constructor(private skipassService: SkipassService, private loginService: LoginService) {
     this.loginService.user.subscribe(x => this.user = x);
+    this.skipassService.skipass.subscribe(x => this.skipass = x);
   }
 
   ngOnInit() {

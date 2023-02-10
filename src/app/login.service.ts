@@ -45,10 +45,14 @@ export class LoginService {
     this.router.navigate(['/homepage']);
   }
 
-  register(user: User): Observable<User> {
-    return this.httpClient.post<User>(this.API_URL + 'register', user, {'headers': this.headers}).pipe(
-      tap((newUser: User) => console.log(`neuer User registriert name=$(newUser.firstName`))
-    )
+  register(user: User) {
+    return this.httpClient.post<User>(this.API_URL + 'register', user, {'headers': this.headers})
+      .pipe(map(user => {
+        localStorage.setItem('user', JSON.stringify(user));
+        this.userSubject.next(user);
+        return user;
+      }));
+    this.router.navigate(['login']);
   }
 
   getById(id: string) {

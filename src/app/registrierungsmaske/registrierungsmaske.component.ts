@@ -15,25 +15,22 @@ export class RegistrierungsmaskeComponent {
   form: FormGroup;
   loading = false;
   submitted = false;
-
-  firstName ='';
-
   user: User;
 
   constructor(private route: ActivatedRoute, private loginService: LoginService, private router: Router, private formBuilder: FormBuilder) {
-    this.loginService.user.subscribe(x => this.user = x);
+    //this.loginService.user.subscribe(x => this.user = x);
   }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      email1: ['', Validators.required, Validators.email],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(5)]],
       birthday: ['', Validators.required],
       phonenumber: ['', [Validators.required, Validators.minLength(8)]],
       agb: ['', Validators.required]
-    })
+    });
   }
 
   get f() {
@@ -52,17 +49,20 @@ export class RegistrierungsmaskeComponent {
       .pipe(first())
       .subscribe({
         next: () => {
-          this.router.navigate(['accountverwaltung'], { relativeTo: this.route});
+          this.router.navigate(['homepage']);
         },
+        error: error => {
+          this.loading = false;
+        }
       })
   }
 
-  email1 = new FormControl('', [Validators.required, Validators.email]);
+  email = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl('', [Validators.required, Validators.minLength(5)]);
   phonenumber = new FormControl('', [Validators.required, Validators.minLength(8)]);
 
   getErrorMessageMail() {
-    return this.email1.hasError('email') ? 'Keine echte E-Mail Adresse' : '';
+    return this.email.hasError('email') ? 'Keine echte E-Mail Adresse' : '';
   }
 
   getErrorMessagePassword() {
