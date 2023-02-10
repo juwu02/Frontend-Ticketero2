@@ -18,7 +18,6 @@ export class RegistrierungsmaskeComponent {
   user: User;
 
   constructor(private route: ActivatedRoute, private loginService: LoginService, private router: Router, private formBuilder: FormBuilder) {
-    //this.loginService.user.subscribe(x => this.user = x);
   }
 
   ngOnInit() {
@@ -45,7 +44,7 @@ export class RegistrierungsmaskeComponent {
     }
 
     this.loading = true;
-    this.loginService.register(this.form.value)
+    /*this.loginService.register(this.form.value)
       .pipe(first())
       .subscribe({
         next: () => {
@@ -54,23 +53,35 @@ export class RegistrierungsmaskeComponent {
         error: error => {
           this.loading = false;
         }
-      })
+      })*/
   }
 
+  firstname = new FormControl('', Validators.required);
+  lastname = new FormControl('', Validators.required);
+  birthday = new FormControl('', Validators.required);
   email = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl('', [Validators.required, Validators.minLength(5)]);
   phonenumber = new FormControl('', [Validators.required, Validators.minLength(8)]);
 
-  getErrorMessageMail() {
-    return this.email.hasError('email') ? 'Keine echte E-Mail Adresse' : '';
-  }
-
-  getErrorMessagePassword() {
-    return this.password.hasError('password') ? 'Passwort muss mindestens aus 5 Zeichen beestehen' : '';
-  }
-
-  getErrorMessagePhonenumber() {
-    return this.phonenumber.hasError('phonenumber') ? 'Die Telefonnummer muss mindestens aus 8 Zahlen beestehen' : '';
+  getErrorMessage() {
+    if (this.firstname.hasError('required')) {
+      return 'Bitte füllen Sie das Feld aus';
+    }
+    if (this.lastname.hasError('required')) {
+      return 'Bitte füllen Sie das Feld aus';
+    }
+    if (this.email.hasError('required')) {
+      return 'Bitte füllen Sie das Feld aus';
+    }
+    if (this.password.hasError('required')) {
+      return 'Bitte füllen Sie das Feld aus';
+    }
+    if (this.birthday.hasError('required')) {
+      return 'Bitte füllen Sie das Feld aus';
+    }
+    if (this.phonenumber.hasError('required')) {
+      return 'Bitte füllen Sie das Feld aus';
+    }
   }
 
   hide = true;

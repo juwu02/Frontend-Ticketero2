@@ -52,10 +52,16 @@ export class AnmeldemaskeComponent {
       });
   }
 
-  email1 = new FormControl('', [Validators.required, Validators.email]);
+  email = new FormControl('', Validators.required);
+  password = new FormControl('', Validators.required);
 
   getErrorMessage() {
-    return this.email1.hasError('email') ? 'Keine echte E-Mail Adresse' : '';
+    if (this.email.hasError('required')) {
+      return 'Bitte füllen Sie das Feld aus';
+    }
+    if (this.password.hasError('required')) {
+      return 'Bitte füllen Sie das Feld aus';
+    }
   }
 
   hide=true;

@@ -11,20 +11,23 @@
   <mat-form-field>
     <mat-label>Vorname</mat-label>
     <input matInput placeholder="Vorname" type="text" formControlName="firstName" required>
+    <mat-error *ngIf="firstname.invalid">{{getErrorMessage()}}</mat-error>
   </mat-form-field><br>
   <mat-form-field>
     <mat-label>Nachname</mat-label>
     <input matInput placeholder="Nachname" type="text" formControlName="lastName" required>
+    <mat-error *ngIf="lastname.invalid">{{getErrorMessage()}}</mat-error>
   </mat-form-field><br>
   <mat-form-field appearance="fill">
   <mat-label>E-Mail Adresse</mat-label>
   <input matInput placeholder="email@example.com" type="text" formControlName="email" required>
-  <mat-error *ngIf="email.invalid">{{getErrorMessageMail()}}</mat-error>
+  <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
   </mat-form-field><br>
   <mat-form-field appearance="fill">
     <mat-label>Passwort eingeben</mat-label>
     <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
-    <mat-error *ngIf="password.invalid">{{getErrorMessagePassword()}}</mat-error>
+
+    <mat-error *ngIf="password.invalid">{{getErrorMessage()}}</mat-error>
     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Passwort verbergen'" [attr.aria-pressed]="hide">
       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
     </button>
@@ -35,12 +38,14 @@
     <mat-datepicker-toggle matSuffix [for]="picker2">
     </mat-datepicker-toggle>
     <mat-datepicker #picker2></mat-datepicker>
+    <mat-error *ngIf="birthday.invalid">{{getErrorMessage()}}</mat-error>
   </mat-form-field>
   <br>
   <mat-form-field appearance="fill" id="runter">
     <mat-label>Handynummer</mat-label>
     <input matInput type="tel" formControlName="phonenumber" placeholder="Handynummer">
-    <mat-error *ngIf="phonenumber.invalid">{{getErrorMessagePhonenumber()}}</mat-error>
+    <mat-error *ngIf="phonenumber.invalid">{{getErrorMessage()}}</mat-error>
+    <mat-error *ngIf="phonenumber.invalid">{{getErrorMessage()}}</mat-error>
   </mat-form-field>
   <mat-checkbox color="primary" formControlName="agb">Ich habe die <a [routerLink]="['/agb']"> AGB</a> gelesen und akzeptiert</mat-checkbox>
   <br><br>
