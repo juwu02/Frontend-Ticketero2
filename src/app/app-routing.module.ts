@@ -37,6 +37,7 @@ const routes: Routes = [
   {path: 'skipasskaufen',
        component: SkipasskaufenComponent,
     title: 'Skipass kaufen',
+    canActivate:[AuthGuard]
   },
   {path: 'bestaetigung',
        component: BestaetigungComponent,
@@ -48,11 +49,11 @@ const routes: Routes = [
   {path:'kontaktdaten',
       component: KontaktdatenComponent,
     title: 'Kontaktdaten',
+    canActivate:[AuthGuard]
   },
   {path:'anmelden',
     component: AnmeldemaskeComponent,
     title: 'Anmelden',
-    canActivate:[AuthGuard]
   },
   {path:'problemmelden',
       component: ProblemmeldenComponent,
@@ -74,7 +75,7 @@ const routes: Routes = [
   {path: 'showTicket',
     component: ShowTicketComponent,
     title: 'showticket',
-  canActivate:[AuthGuard],
+  canActivate:[AuthGuard]
   },
   { path: '',   redirectTo: '/homepage', pathMatch: 'full' },
 ];

@@ -1,102 +1,73 @@
-.example-container mat-form-field + mat-form-field {
-  display: flex;
-  flex-direction: column;
-}
-
-.example-container > * {
-  width: 100%;
-}
-
-.teil1,.teil3{
-  width: 25%;
-}
-.teil2{
-  display: grid;
-  justify-content: center;
-  padding-top: 3%;
-  background: #fff;
-  background-color:rgba(255,255,255,.8);
-  width:50%;
-  padding-bottom: 5%;
-}
-.teil2 h1 {
-  font-size:55px;
-  text-align:center;
-  margin-top:40px;
-  font-style:revert;
-  font-weight:bold;
-  padding-bottom: 40px;
-}
-html, body {
-  height: auto;
-}
-
 body{
   margin: 0;
   padding:0;
   font-size:16px;
 }
-
+html, body {
+    height: auto;
+}
 
 body{
-  background-image: url("../../assets/Pictures/skipiste2.jpg");
+  background-image: url("../../assets/Pictures/skipiste8.jpg");
   background-position: center;
   background-size: cover;
 }
-
+.teil1,.teil3{
+  width: 25%;
+}
+h1{
+  text-align: center;
+}
+h2, p, h1{
+  padding-left: 10%;
+  padding-right: 10%;
+}
+.teil2{
+  display: grid;
+  justify-content: center;
+  padding-top: 3%;
+  width:50%;
+  padding-bottom: 2%;
+  background: #fff;
+  background-color:rgba(255,255,255,.8);
+}
 .registrieren{
   display:flex;
 }
 
-.example-right-align {
-  text-align: right;
-}
-
-input.example-right-align::-webkit-outer-spin-button,
-input.example-right-align::-webkit-inner-spin-button {
-  display: none;
-}
-
-input.example-right-align {
-  -moz-appearance: textfield;
+.teil2 h1{
+  font-size: 35px;
+  font-style:revert;
+  font-weight:bold;
+  margin-bottom: 40px;
 }
 
 
-.example-container{
-  padding-bottom:150px;
+@media(max-width:1000px){
+  .teil2 h1{
+    font-size: 30px;
+    text-align: center;
+  }
 }
-
 @media(max-width:850px){
   .teil2 h1{
-    font-size: 40px;
+    font-size: 30px;
     text-align: center;
     margin-top: 30px;
   }
   .teil1,.teil3{
     width: 0%;
   }
-  .teil2, .teil4{
-    width: 100%;
-  }
-  .teil4{
-    padding-top: 30px;
-  }
-
+  .teil2{
+      width: 100%;
+    }
 }
-@media (min-width:851px) and (max-width:1400px){
+@media (min-width:851px) and (max-width:1200px){
   .teil1, .teil3{
-    width:15%;
-  }
-  .teil2, .teil4{
-    width:70%;}
+      width:15%;
+    }
+   .teil2{
+      width:70%;}
 }
 @media(max-width:500px){
-  .example-container {
-    margin-left:5%;
-    margin-right:5%;
-  }
-  .abstand{
-    margin-left:5%;
-    margin-right:5%;
-  }
 }
