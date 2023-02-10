@@ -6,16 +6,16 @@
 <section class="impressum">
   <div class="teil1"> </div>
   <div class="teil2">
-    <h1>Impressum</h1>
+    <h1 >Impressum</h1>
     <mat-list>
-      <div mat-subheader>Unternehmen</div>
+      <div mat-subheader class="test">Unternehmen</div>
       <mat-list-item *ngFor="let folder of folders">
         <mat-icon matListItemIcon>info</mat-icon>
         <div matListItemTitle>{{folder.name}}</div>
         <div matListItemLine>{{folder.beschreibung}}</div>
       </mat-list-item>
       <mat-divider></mat-divider>
-      <div mat-subheader>Datenschutz</div>
+      <div mat-subheader class="test">Datenschutz</div>
       <mat-list-item *ngFor="let note of notes">
         <mat-icon matListItemIcon>fingerprint</mat-icon>
         <div matListItemTitle>{{note.name}}</div>
