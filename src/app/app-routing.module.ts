@@ -21,51 +21,51 @@ const routes: Routes = [
   {path: 'tickets',
     component: BevorstehendeEventsComponent,
     title: 'Tickets',
-    canActivate:[AuthGuard]},
+    },
   {path: 'accountverwaltung',
        component: AccountverwaltungComponent,
     title: 'Accountverwaltung',
-    canActivate:[AuthGuard]
   },
   {path: 'registrieren',
        component: RegistrierungsmaskeComponent,
-    title: 'Registrieren'
+    title: 'Registrieren',
   },
   {path: 'kontaktformular',
        component: KontaktformularComponent,
-    title: 'Kontaktformular'
+    title: 'Kontaktformular',
   },
   {path: 'skipasskaufen',
        component: SkipasskaufenComponent,
     title: 'Skipass kaufen',
-    canActivate:[AuthGuard]
   },
   {path: 'bestaetigung',
        component: BestaetigungComponent,
-    title: 'Ticket gekauft',
-    canActivate:[AuthGuard]
+    title: 'Kaufbestätigung',
   },
   {path: 'homepage',
-       component: HomepageComponent
+        component: HomepageComponent,
   },
   {path:'kontaktdaten',
       component: KontaktdatenComponent,
     title: 'Kontaktdaten',
-    canActivate:[AuthGuard]
   },
   {path:'anmelden',
     component: AnmeldemaskeComponent,
-    title: 'Anmelden'
+    title: 'Anmelden',
+    canActivate:[AuthGuard]
   },
   {path:'problemmelden',
-      component: ProblemmeldenComponent
+      component: ProblemmeldenComponent,
+      title: 'Problemmeldung',
     },
   {path: 'impressum',
     component: ImpressumComponent,
-    title: 'Impressum'},
+    title: 'Impressum',
+    },
   {path: 'agb',
     component: AgbComponent,
-    title: 'AGB'},
+    title: 'AGB',
+    },
   {path: 'checkTicket/:serialno',
     component: CheckTicketComponent,
     title: 'checkticket',
@@ -74,7 +74,7 @@ const routes: Routes = [
   {path: 'showTicket',
     component: ShowTicketComponent,
     title: 'showticket',
-  canActivate:[AuthGuard]
+  canActivate:[AuthGuard],
   },
   { path: '',   redirectTo: '/homepage', pathMatch: 'full' },
 ];
