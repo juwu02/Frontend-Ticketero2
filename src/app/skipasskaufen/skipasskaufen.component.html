@@ -37,8 +37,14 @@
     <br>
 
     <mat-form-field appearance="fill" id="runter">
+      <mat-label>Dein Alter:</mat-label>
+      <input matInput type="number" name="alter" alter ngModel required #alter="ngModel"  min="18" >
+      <span *ngIf="alter.invalid && alter.touched " class="error"> Du musst mindestens 18 Jahre alt sein, um ein Skipass zu kaufen </span>
+     </mat-form-field>
+
+    <mat-form-field appearance="fill" id="runter">
     <mat-label>E-Mail-Adresse:</mat-label>
-    <input matInput type="email" name="Email" email placeholder="Deine E-Mail-Adresse" ngModel required #Email="ngModel">
+    <input matInput type="text" name="Email" email placeholder="Deine E-Mail-Adresse" ngModel required #Email="ngModel">
       <span *ngIf="Email.invalid && Email.touched" class="error"> Bitte valide E-Mail-Adresse eingeben </span>
     </mat-form-field>
 
