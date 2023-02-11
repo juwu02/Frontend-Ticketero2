@@ -53,9 +53,11 @@ export class SkipasskaufenComponent{
       email: ['', [Validators.required, Validators.email]],
       subtype: ['', Validators.required],
       birthday: ['', Validators.required],
+      age: ['', Validators.required],
       phonenumber: ['', [Validators.required, Validators.minLength(8)]],
     });
   }
+
 
   onSubmit() {
     this.submitted = true;

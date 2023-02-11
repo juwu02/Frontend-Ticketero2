@@ -59,12 +59,14 @@
 
     <mat-form-field appearance="fill" >
       <mat-label>Vorname:</mat-label>
-      <input matInput type="text" name="Vorname" placeholder="Vorname" required formControlName="firstName">
+      <input matInput type="text" name="Vorname" placeholder="Vorname" required  formControlName="firstName">
+      <span *ngIf="(['Vorname']).invalid && (['Vorname']).touched" class="error"> Bitte Vorname eingeben </span>
          </mat-form-field>
 
     <mat-form-field appearance="fill" id="runter">
       <mat-label>Nachname:</mat-label>
       <input matInput type="text" name="Nachname" placeholder="Nachname" required formControlName="lastName">
+      <span *ngIf="(['Nachname']).invalid && (['Nachname']).touched" class="error"> Bitte Nachname eingeben </span>
          </mat-form-field>
 
     <mat-form-field>
@@ -86,16 +88,23 @@
     <br>
 
     <mat-form-field appearance="fill" id="runter">
+      <mat-label>Dein Alter:</mat-label>
+      <input matInput type="number" name="alter" required formControlName="age"  min="18" >
+      <span *ngIf="this.form.get(['age']).invalid && this.form.get(['age']).touched " class="error"> Du musst mindestens 18 Jahre alt sein, um ein Skipass zu kaufen </span>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" id="runter">
       <mat-label>E-Mail-Adresse:</mat-label>
       <input matInput type="text" name="Email" email placeholder="Deine E-Mail-Adresse" required formControlName="email">
+      <span *ngIf="(['Email']).invalid && (['Email']).touched" class="error"> Bitte valide E-Mail-Adresse eingeben </span>
           </mat-form-field>
 
     <mat-form-field appearance="fill" id="runter">
       <mat-label>Handynummer</mat-label>
-      <input matInput type="tel" name="Handynummer" placeholder="Handynummer"l formControlName="phonenumber" >
+      <input matInput type="tel" name="Handynummer" placeholder="Handynummer" formControlName="phonenumber" >
     </mat-form-field>
     <p> </p>
-    <button mat-raised-button color="primary" type="submit">Kostenpflichtig kaufen</button>
+    <button  [disabled]="this.form.invalid" mat-raised-button color="primary" type="submit">Kostenpflichtig kaufen</button>
   </form>
 </div>
 <div class="teil3"> </div>
