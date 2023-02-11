@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {SkipassService} from "../skipass.service";
 import {Skipass} from "../skipass";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {first, Observable, Subject} from "rxjs";
+import {first} from "rxjs";
 import {Router} from "@angular/router";
 import {LoginService} from "../login.service";
 import {User} from "../user";
@@ -35,21 +35,21 @@ export class CheckTicketComponent {
   }
 
   skigebiete: Skigebiet[] = [
-    {value: 'Zermatter Bergbahn', viewValue: 'Belalp Bahnen'},
-    {value: 'Zermatter Bergbahn',viewValue: 'Rosswald Bahnen'},
-    {value: 'Zermatter Bergbahn',viewValue: 'Skilifte Rothwald/Wasenalp'},
-    {value: 'Zermatter Bergbahn',viewValue: 'Aletsch Bahnen'},
-    {value: 'Zermatter Bergbahn',viewValue: 'Bellwald Sportbahnen'},
-    {value: 'Zermatter Bergbahn',viewValue: 'Bergbahnen Hohsas'},
-    {value: 'Zermatter Bergbahn',viewValue: 'Touristische Unternehmung Grächen'},
-    {value:'Zermatter Bergbahn',viewValue: 'Torrent Bahnen Leukerbad-Albinen'},
-    {value: 'Zermatter Bergbahn',viewValue: 'Gampel-Jeizinen Bahnen'},
-    {value: 'Zermatter Bergbahn',viewValue: 'Giw / Visperterminen'},
-    {value: 'Zermatter Bergbahn',viewValue: 'Lauchernalp Bergbahnen'},
-    {value: 'Zermatter Bergbahn',viewValue: 'Moosalp Bergbahnen'},
-    {value: 'Zermatter Bergbahn',viewValue: 'Verkehrsbetriebe Unterbäch'},
-    {value: 'Zermatter Bergbahn',viewValue: 'Sportbahnen Eischoll'},
-    {value: 'Zermatter Bergbahn',viewValue: 'Skilifte Gspon'},
+    {value: 'Belalp Bahnen', viewValue: 'Belalp Bahnen'},
+    {value: 'Rosswald Bahnen',viewValue: 'Rosswald Bahnen'},
+    {value: 'Skilifte Rothwald/Wasenalp',viewValue: 'Skilifte Rothwald/Wasenalp'},
+    {value: 'Aletsch Bahnen',viewValue: 'Aletsch Bahnen'},
+    {value: 'Bellwald Sportbahnen',viewValue: 'Bellwald Sportbahnen'},
+    {value: 'Bergbahnen Hohsas',viewValue: 'Bergbahnen Hohsas'},
+    {value: 'Touristische Unternehmung Grächen',viewValue: 'Touristische Unternehmung Grächen'},
+    {value:'Torrent Bahnen Leukerbad-Albinen',viewValue: 'Torrent Bahnen Leukerbad-Albinen'},
+    {value: 'Gampel-Jeizinen Bahnen',viewValue: 'Gampel-Jeizinen Bahnen'},
+    {value: 'Giw / Visperterminen',viewValue: 'Giw / Visperterminen'},
+    {value: 'Lauchernalp Bergbahnen',viewValue: 'Lauchernalp Bergbahnen'},
+    {value: 'Moosalp Bergbahnen',viewValue: 'Moosalp Bergbahnen'},
+    {value: 'Verkehrsbetriebe Unterbäch',viewValue: 'Verkehrsbetriebe Unterbäch'},
+    {value: 'Sportbahnen Eischoll',viewValue: 'Sportbahnen Eischoll'},
+    {value: 'Skilifte Gspon',viewValue: 'Skilifte Gspon'},
     {value: 'Zermatter Bergbahn',viewValue: 'Zermatter Bergbahn'}
 
   ];

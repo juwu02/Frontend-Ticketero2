@@ -25,6 +25,7 @@ const routes: Routes = [
   {path: 'accountverwaltung',
        component: AccountverwaltungComponent,
     title: 'Accountverwaltung',
+    canActivate:[AuthGuard]
   },
   {path: 'registrieren',
        component: RegistrierungsmaskeComponent,

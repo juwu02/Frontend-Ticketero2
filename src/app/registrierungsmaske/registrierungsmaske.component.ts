@@ -24,7 +24,7 @@ export class RegistrierungsmaskeComponent {
     this.form = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+      email: ['',[Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
       password: ['', [Validators.required, Validators.minLength(5)]],
       birthday: ['', Validators.required],
       phonenumber: ['', [Validators.required, Validators.minLength(8)]],
@@ -59,29 +59,42 @@ export class RegistrierungsmaskeComponent {
   firstname = new FormControl('', Validators.required);
   lastname = new FormControl('', Validators.required);
   birthday = new FormControl('', Validators.required);
-  email = new FormControl('', [Validators.required, Validators.email]);
+  email = new FormControl('',[Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]);
   password = new FormControl('', [Validators.required, Validators.minLength(5)]);
   phonenumber = new FormControl('', [Validators.required, Validators.minLength(8)]);
 
-  getErrorMessage() {
+  getErrorMessageFirstname() {
     if (this.firstname.hasError('required')) {
-      return 'Bitte füllen Sie das Feld aus';
+      return 'Vorname ist erforderlich';
     }
+  }
+  getErrorMessageLastname() {
     if (this.lastname.hasError('required')) {
-      return 'Bitte füllen Sie das Feld aus';
+      return 'Nachname ist erforderlich';
     }
+  }
+  getErrorMessageEmail() {
     if (this.email.hasError('required')) {
-      return 'Bitte füllen Sie das Feld aus';
+      return 'E-Mail ist erforderlich';
     }
+  }
+  getErrorMessagePassword() {
     if (this.password.hasError('required')) {
-      return 'Bitte füllen Sie das Feld aus';
+      return 'Passwort ist erforderlich und muss aus mindestens 5 Zeichen bestehen';
     }
+  }
+  getErrorMessageBirthday() {
     if (this.birthday.hasError('required')) {
-      return 'Bitte füllen Sie das Feld aus';
+      return 'Geburtsdatum ist erforderlich';
     }
+  }
+  getErrorMessagePhonenumber() {
     if (this.phonenumber.hasError('required')) {
-      return 'Bitte füllen Sie das Feld aus';
+      return 'Telefonnummer ist erforderlich';
     }
+  }
+  getErrorMessageAgb() {
+
   }
 
   hide = true;
