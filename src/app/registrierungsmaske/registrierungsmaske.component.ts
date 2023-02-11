@@ -44,7 +44,7 @@ export class RegistrierungsmaskeComponent {
     }
 
     this.loading = true;
-    /*this.loginService.register(this.form.value)
+    this.loginService.register(this.form.value)
       .pipe(first())
       .subscribe({
         next: () => {
@@ -53,7 +53,7 @@ export class RegistrierungsmaskeComponent {
         error: error => {
           this.loading = false;
         }
-      })*/
+      })
   }
 
   firstname = new FormControl('', Validators.required);

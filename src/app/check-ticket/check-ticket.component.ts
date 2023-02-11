@@ -8,7 +8,7 @@ import {LoginService} from "../login.service";
 import {User} from "../user";
 
 export interface Skigebiet {
-  value: number,
+  value: string,
   viewValue: string;
 }
 
@@ -35,22 +35,22 @@ export class CheckTicketComponent {
   }
 
   skigebiete: Skigebiet[] = [
-    {value: 1, viewValue: 'Belalp Bahnen'},
-    {value: 1,viewValue: 'Rosswald Bahnen'},
-    {value: 1,viewValue: 'Skilifte Rothwald/Wasenalp'},
-    {value: 1,viewValue: 'Aletsch Bahnen'},
-    {value: 1,viewValue: 'Bellwald Sportbahnen'},
-    {value: 1,viewValue: 'Bergbahnen Hohsas'},
-    {value: 1,viewValue: 'Touristische Unternehmung Grächen'},
-    {value: 1,viewValue: 'Torrent Bahnen Leukerbad-Albinen'},
-    {value: 1,viewValue: 'Gampel-Jeizinen Bahnen'},
-    {value: 1,viewValue: 'Giw / Visperterminen'},
-    {value: 1,viewValue: 'Lauchernalp Bergbahnen'},
-    {value: 1,viewValue: 'Moosalp Bergbahnen'},
-    {value: 1,viewValue: 'Verkehrsbetriebe Unterbäch'},
-    {value: 1,viewValue: 'Sportbahnen Eischoll'},
-    {value: 1,viewValue: 'Skilifte Gspon'},
-    {value: 1,viewValue: 'Zermatter Bergbahn'}
+    {value: 'Zermatter Bergbahn', viewValue: 'Belalp Bahnen'},
+    {value: 'Zermatter Bergbahn',viewValue: 'Rosswald Bahnen'},
+    {value: 'Zermatter Bergbahn',viewValue: 'Skilifte Rothwald/Wasenalp'},
+    {value: 'Zermatter Bergbahn',viewValue: 'Aletsch Bahnen'},
+    {value: 'Zermatter Bergbahn',viewValue: 'Bellwald Sportbahnen'},
+    {value: 'Zermatter Bergbahn',viewValue: 'Bergbahnen Hohsas'},
+    {value: 'Zermatter Bergbahn',viewValue: 'Touristische Unternehmung Grächen'},
+    {value:'Zermatter Bergbahn',viewValue: 'Torrent Bahnen Leukerbad-Albinen'},
+    {value: 'Zermatter Bergbahn',viewValue: 'Gampel-Jeizinen Bahnen'},
+    {value: 'Zermatter Bergbahn',viewValue: 'Giw / Visperterminen'},
+    {value: 'Zermatter Bergbahn',viewValue: 'Lauchernalp Bergbahnen'},
+    {value: 'Zermatter Bergbahn',viewValue: 'Moosalp Bergbahnen'},
+    {value: 'Zermatter Bergbahn',viewValue: 'Verkehrsbetriebe Unterbäch'},
+    {value: 'Zermatter Bergbahn',viewValue: 'Sportbahnen Eischoll'},
+    {value: 'Zermatter Bergbahn',viewValue: 'Skilifte Gspon'},
+    {value: 'Zermatter Bergbahn',viewValue: 'Zermatter Bergbahn'}
 
   ];
 

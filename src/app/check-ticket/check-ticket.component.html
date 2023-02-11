@@ -14,7 +14,7 @@
         class="example-radio-group"
         [(ngModel)]="serialno">
         <mat-radio-button class="example-radio-button" *ngFor="let skipass of skipaesse" [value]="skipass.serial_no">
-          {{skipass.firstname}} {{skipass.lastname}}
+          {{user.firstname}} {{user.lastname}}
         </mat-radio-button>
       </mat-radio-group>
     <form class="example-container" [formGroup]="form" (ngSubmit)="onSubmit()">

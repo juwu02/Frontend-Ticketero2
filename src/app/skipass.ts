@@ -1,4 +1,5 @@
 export interface Skipass {
+  "id": number;
   "active": boolean,
   "ban_reason": string,
   "dob": string,

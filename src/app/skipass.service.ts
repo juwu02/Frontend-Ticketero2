@@ -34,17 +34,17 @@ export class SkipassService {
       }));
   }
 
-  getSkipaesse2(serialno, place){
-    return this.httpClient.post<Skipass>(this.API_URL + 'proveTicket' + serialno.toString(), {serialno, place}, {'headers': this.headers})
+  getTickets2(userid):Observable<Skipass[]>{
+    return this.httpClient.post<Skipass[]>(this.API_URL + 'mytickets', {userid}, {'headers': this.headers});
+  }
+
+  buy(skipass: Skipass, userid): Observable<Skipass>{
+    return this.httpClient.post<Skipass>(this.API_URL + '/buy', {skipass, userid}, {'headers': this.headers})
       .pipe(map(skipass => {
         localStorage.setItem('skipass', JSON.stringify(skipass));
         this.skipassSubject.next(skipass);
         return skipass;
       }));
-  }
-
-  getTickets2(userid):Observable<Skipass[]>{
-    return this.httpClient.post<Skipass[]>(this.API_URL + 'mytickets', {userid}, {'headers': this.headers});
   }
 
 }
