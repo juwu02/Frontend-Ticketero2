@@ -4,6 +4,7 @@ import {first} from "rxjs";
 import {User} from "../user";
 import {LoginService} from "../login.service";
 import {Router, ActivatedRoute} from "@angular/router";
+import {getBoolean} from "@angular/fire/remote-config";
 
 @Component({
   selector: 'app-registrierungsmaske',
@@ -28,7 +29,7 @@ export class RegistrierungsmaskeComponent {
       password: ['', [Validators.required, Validators.minLength(5)]],
       birthday: ['', Validators.required],
       phonenumber: ['', [Validators.required, Validators.minLength(8)]],
-      agb: ['', Validators.required]
+      agb: [true, Validators.requiredTrue]
     });
   }
 
@@ -90,7 +91,7 @@ export class RegistrierungsmaskeComponent {
   }
   getErrorMessagePhonenumber() {
     if (this.phonenumber.hasError('required')) {
-      return 'Telefonnummer ist erforderlich';
+      return 'Telefonnummer ist erforderlich und muss aus mindestens 8 Zeichen bestehen';
     }
   }
   getErrorMessageAgb() {

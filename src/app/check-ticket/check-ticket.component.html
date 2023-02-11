@@ -30,7 +30,7 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-    <button mat-raised-button color="primary"  type="submit">Ticket suchen</button>
+    <button [disabled]="this.form.invalid" mat-raised-button color="primary"  type="submit">Ticket kontrollieren</button>
     </form>
     </div>
   </div>

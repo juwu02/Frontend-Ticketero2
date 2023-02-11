@@ -21,7 +21,7 @@
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
       </mat-form-field>
-        <button mat-raised-button color="primary"  type="submit">Anmelden</button><br>
+        <button mat-raised-button color="primary" [disabled]="this.form.invalid" type="submit">Anmelden</button><br>
         <p>Noch keinen Account bei Ticketero? Einfach hier registrieren</p>
         <button mat-raised-button color="primary" [routerLink]="['/registrieren']">Registrieren</button>
   </form>
