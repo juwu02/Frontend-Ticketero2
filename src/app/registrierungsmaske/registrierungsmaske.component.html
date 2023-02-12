@@ -48,7 +48,7 @@
   </mat-form-field>
   <mat-checkbox color="primary" formControlName="agb">Ich habe die <a [routerLink]="['/agb']"> AGB</a> gelesen und akzeptiert</mat-checkbox>
   <br><br>
-    <button [disabled]="this.form.invalid" mat-raised-button color="primary" type="submit">Registrieren</button><br>
+    <button [disabled]="this.form.invalid" mat-raised-button color="primary" type="submit" [routerLink]="['/anmelden']">Registrieren</button><br>
   </form>
   </div>
   <div class="teil3"> </div>

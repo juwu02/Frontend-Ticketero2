@@ -4,7 +4,6 @@ import {first} from "rxjs";
 import {User} from "../user";
 import {LoginService} from "../login.service";
 import {Router, ActivatedRoute} from "@angular/router";
-import {getBoolean} from "@angular/fire/remote-config";
 
 @Component({
   selector: 'app-registrierungsmaske',
