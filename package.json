@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy": "ng build --base-href https://juwu02.github.io/Frontend-Ticketero2/ && angular-cli-ghpages --branch gh-pages"
   },
   "private": true,
   "dependencies": {
