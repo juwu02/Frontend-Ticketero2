@@ -72,6 +72,9 @@ body{
     }
    .teil2, .teil4{
       width:70%;}
+      .teil2{
+          padding-bottom: 400px;
+        }
 }
 @media(max-width:500px){
   .example-container {
@@ -80,4 +83,18 @@ body{
   }
 }
 
-
+@media(min-width:2000px){
+  .teil2{
+    padding-bottom: 500px;
+  }
+}
+@media (min-width:1401px) and (max-width:1999px){
+.teil2{
+    padding-bottom: 200px;
+  }
+}
+@media  (max-width:850px){
+.teil2{
+    padding-bottom: 200px;
+  }
+}
