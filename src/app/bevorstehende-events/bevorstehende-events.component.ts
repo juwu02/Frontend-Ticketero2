@@ -1,10 +1,9 @@
-import {Component, Pipe} from '@angular/core';
+import {Component} from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import {Skipass} from "../skipass";
 import { SkipassService } from "../skipass.service";
 import {LoginService} from "../login.service";
 import {User} from "../user";
-import {Subject} from "rxjs";
 
 @Component({
   selector: 'app-bevorstehende-events',
@@ -28,7 +27,7 @@ export class BevorstehendeEventsComponent {
 
 
   values: any;
-  qrInfo ='http://localhost:4200/checkTicket/';
+  qrInfo ='https://juwu02.github.io/Frontend-Ticketero2/';
   qrData(val: any) {
     return this.values = val;
   }
